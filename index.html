@@ -71,18 +71,8 @@
             color: rgba(255, 255, 255, 0.27);
         }
 
-        div h4 {
-            display: inline-block;
-            position: absolute;
-            top: 85vh;
-            width: 40vw;
-            left: 9vw;
-            font-size: 20px;
-            color: rgb(255, 255, 255);
-        }
-
         #Explore {
-            display: inline-block;
+            display: inline-block;  
             position: absolute;
             top: 81vh;
             width: 10vw;
@@ -140,24 +130,76 @@
         .L0Div{
             background-color: rgb(246, 248, 255);
             box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.25);
-            /* border: 2px solid black; */
+            display: grid;
         }
         .L1Div{
-            display: inline-block;
+            display: grid;
+            grid-template-columns: 30% 70%;
             width: 60vw;
             margin-top: 15px;
             margin-left: 20vw;
             background-color: white;
             box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.25);
             border-radius: 7px;
+
         }
         .image{
             width: 200px;
             height: 200px;
             border-radius: 7px;
-            
+            display: inline-block;
         }
+        .L2Div{
+            display: inline-block;
+        }
+        .innerText{
+            font-size: 30px;
+            margin-top: 8px;
+        }
+        .innerText2{
+            margin-right: 30px;
+            margin-top: 7px;
+            font-size: 16px;
+            color: rgba(31, 31, 31, 0.491);
+        }
+        .innerText3{
+            font-size: 18px;
+            display: inline-block;
+        }
+       
+    .styled {
+        display: block;
+        border: 0;
+        line-height: 2.5;
+        padding: 0 20px;
+        font-size: 1rem;
+        text-align: center;
+        color: #fff;
+        text-shadow: 1px 1px 1px #000;
+        border-radius: 10px;
+        background-color: rgb(0, 100, 255,0.71);
+        background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+        box-shadow:
+            inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+            inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+        }
+
+    .styled:hover {
+    background-color: rgb(10, 100, 255,0.71);
+    }
+
+    .styled:active {
+    box-shadow:
+        inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+        inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+    }
+
     </style>
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
 </head>
 
 <body>
@@ -230,25 +272,45 @@
         <div class="L1Div">
             <img class="image" src="/Images/CrossRiverMall.jpg" alt="Cross River Mall">
             <div class="L2Div">
-
+                <h3 class="innerText">Cross River Mall</h3>
+                <h4 class="innerText2">East Delhi's massive shopping precinct, the Cross River Mall spreads across many acres of land and is too big to be explored in one day.It is located in Shahdara's business district in Delhi.</h4>
+                <h4 class="innerText3">Maximum Parking Capacity : 4000</h4>
+                <br>
+                <br>    
+                <input class="favorite styled" type="button" value="View Availability" />
             </div>
         </div>
         <div class="L1Div">
             <img class="image" src="/Images/DLFPromenade.jpg" alt="DLF Promenade">
             <div class="L2Div">
-
+                <h3 class="innerText">DLF Promenade</h3>
+                <h4 class="innerText2">Located on Nelson Mandela Road in the heart of Vasant Kunj is DLF Promenade , the best in Vasant Kunj.It is fully equipped with everything and the latest trendy apparel. It's also known as Delhi's Fashion Capital.</h4>
+                <h4 class="innerText3">Maximum Parking Capacity : 2000</h4>
+                <br>
+                <br>
+                <input class="favorite styled" type="button" value="View Availability" />
             </div>
         </div>
         <div class="L1Div">
             <img class="image" src="/Images/V3S.avif" alt="V3S Mall">
             <div class="L2Div">
-
+                <h3 class="innerText">V3S Mall</h3>
+                <h4 class="innerText2">Spread over an area of five acres, it is one of the trendiest shopping destinations in Laxmi Nagar,East Delhi. V3S Mall offers high quality life style, shopping and eating options under one roof.</h4>
+                <h4 class="innerText3">Maximum Parking Capacity : 4000</h4>
+                <br>
+                <br>
+                <input class="favorite styled" type="button" value="View Availability" />
             </div>
         </div>
         <div class="L1Div">
             <img class="image" src="/Images/AmbienceMall.avif" alt="Ambience Mall">
             <div class="L2Div">
-
+                <h3 class="innerText">Ambience Mall</h3>
+                <h4 class="innerText2">Airy, sophisticated mall offering global retail shops, restaurants, a bowling alley & movie theater. Ambience Mall is a one stop place for all varieties of shopping , food , entertainment.</h4>
+                <h4 class="innerText3">Maximum Parking Capacity : 4000</h4>
+                <br>
+                <br>
+                <input class="favorite styled" type="button" value="View Availability" />
             </div>
         </div>
     </div>
