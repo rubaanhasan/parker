@@ -6,8 +6,46 @@
     <title>Login</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/CSS/login.css">
 </head>
 <body>
-    
+    <ul class="nav nav-pills justify-content-end background-color-dark">
+        <li class="nav-item">
+          <a class="nav-link" href="/index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/about.html">About Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/contact.html">Contact Us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/login.html">Login</a>
+        </li>
+      </ul>
+    <div class="wrapper fadeInDown">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+            <h1>Login to Parker!</h1>
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <img src="Images/P_Logo.jpg" id="icon" alt="User Icon" />
+          </div>
+          
+          <!-- Login Form -->
+          <form>
+            <input type="text" id="login" class="fadeIn second" name="name" placeholder="Username">
+            <input type="text" id="password" class="fadeIn third" name="password" placeholder="Password">
+            <input type="submit" class="fadeIn fourth" value="Log In">
+          </form>
+          <a class="underlineHover" href="#">Not an Existing User? Sign Up</a>
+          <!-- Remind Passowrd -->
+          <div id="formFooter">
+            
+            <a class="underlineHover" href="#">Forgot Password?</a>            
+          </div>
+      
+        </div>
+      </div>
 </body>
 </html>
