@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        #BG_Img1 {
+            height: 100vh;
+            width: 100vw;
+            margin: 0;
+        }
+
+        #Parker_Top {
+            display: inline-block;
+            position: absolute;
+            top: 1vh;
+            width: 30vw;
+            left: 10vw;
+        }
+
+        nav ul li {
+            display: inline-block;
+            color: white;
+            margin: 10px;
+        }
+
+        nav ul {
+            position: absolute;
+            top: 8vh;
+            width: 30vw;
+            right: 3vw;
+            font-size: 25px;
+        }
+
+        div h2 {
+            display: inline-block;
+            position: absolute;
+            top: 30vh;
+            width: 50vw;
+            left: 9vw;
+            font-size: 70px;
+            color: white;
+        }
+
+        #Car {
+            height: 25vh;
+            width: 25vw;
+            position: absolute;
+            top: 38vh;
+            right: 9vw;
+        }
+
+        .h13 {
+            display: inline-block;
+            position: absolute;
+            top: 72vh;
+            width: 40vw;
+            left: 9vw;
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.27);
+        }
+
+        div h4 {
+            display: inline-block;
+            position: absolute;
+            top: 85vh;
+            width: 40vw;
+            left: 9vw;
+            font-size: 20px;
+            color: rgb(255, 255, 255);
+        }
+
+        #Explore {
+            display: inline-block;
+            position: absolute;
+            top: 81vh;
+            width: 10vw;
+            left: 8vw;
+            scroll-behavior: smooth;
+        }
+        
+
+        #BG_Explore {
+            position: relative;
+            left: 4vw;
+            display: inline-block;
+            width: 10vw;
+            height: 8vh;
+            margin: 0;
+            padding: 0;
+            opacity: 1;
+            bottom: 0.1vh;
+        }
+
+        #ExploreText {
+            position: relative;
+            bottom: 4vh;
+            left: 5.9vw;
+            font-size: larger;
+            color: rgb(217, 217, 217);
+        }
+
+        #SectionExplore {
+            height: 11vh;
+            margin: 0;
+            position: relative;
+            bottom: 1vh;
+            background-color: rgb(247,247,255);
+            /* box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.25); */
+            border: 1px solid black;
+            scroll-behavior: smooth;
+        }
+        .Dropdown{
+            position: relative;
+            bottom: 6.5vh;
+            left: 50vw;
+            font-size: larger;
+        } 
+        #GMap{
+            display: inline-block;
+            margin: 20px 0px;
+            padding: 0;
+            width: 40vw;
+            height: 40vh;
+            position: relative;
+            left: 30vw;
+            border: 2px solid black;
+        }
+        .L0Div{
+            background-color: rgb(246, 248, 255);
+            box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.25);
+            /* border: 2px solid black; */
+        }
+        .L1Div{
+            display: inline-block;
+            width: 60vw;
+            margin-top: 15px;
+            margin-left: 20vw;
+            background-color: white;
+            box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.25);
+            border-radius: 7px;
+        }
+        .image{
+            width: 200px;
+            height: 200px;
+            border-radius: 7px;
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <img src="Images/Background1.jpg" alt="Background1" id="BG_Img1"><img src="Images/Parker_Top.png" alt="P_Logo"
+            id="Parker_Top">
+        <nav>
+            <ul>
+                <a href="index.html">
+                    <li>Home</li>
+                </a>
+                <a href="about.html">
+                    <li>About Us</li>
+                </a>
+                <a href="contact.html">
+                    <li>Contact</li>
+                </a>
+                <a href="login.html">
+                    <li>Login</li>
+                </a>
+            </ul>
+        </nav>
+        <h2>Experience the Convenience of Smart Parking</h2><img src="Images/Car.png" alt="Car" id="Car">
+        <h3 class="h13">Unlock a new era in Parking Management and redefine the way you park by Parking at your
+            fingertips</h3>
+            <a href="#SectionExplore"><img src="Images/Explore.png" alt="Explore" id="Explore"></a>
+    </div>
+    <div id="SectionExplore">
+        <img src="Images/BGExplore.png" alt="BackgroundExplore" id="BG_Explore">
+        <h3 id="ExploreText">EXPLORE</h3>
+        <label for="Start" class="Dropdown">Start date:</label>
+        <input type="date" class="Dropdown" id="Start" name="trip-Start" value="2023-10-22" min="2023-10-22" max="2023-11-22" />
+        <select class="Dropdown" name="InTime" id="InTime">
+            <option value="no-value">Select In Time</option>
+            <option value="9">09:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+            <option value="18">18:00</option>
+            <option value="19">19:00</option>
+        </select>
+        <label for="End" class="Dropdown">End date:</label>
+        <input type="date" id="End" name="trip-End" value="2023-10-22" min="2023-10-22" max="2023-11-22" class="Dropdown" />
+        <select class="Dropdown" name="OutTime" id="OutTime">
+            <option value="no-value">Select Out Time</option>
+            <option value="9">09:00</option>
+            <option value="10">10:00</option>
+            <option value="11">11:00</option>
+            <option value="12">12:00</option>
+            <option value="13">13:00</option>
+            <option value="14">14:00</option>
+            <option value="15">15:00</option>
+            <option value="16">16:00</option>
+            <option value="17">17:00</option>
+            <option value="18">18:00</option>
+            <option value="19">19:00</option>
+        </select>
+    </div>
+
+    <div>
+        <iframe src="https://www.google.com.qa/maps/d/u/0/embed?mid=1g0LvHoLwS6gCFjm_5jdl6YnpkARZNu0&ehbc=2E312F&noprof=1&hl=en" id="GMap"></iframe>
+    </div>
+
+    <div class="L0Div">
+        <div class="L1Div">
+            <img class="image" src="/Images/CrossRiverMall.jpg" alt="Cross River Mall">
+            <div class="L2Div">
+
+            </div>
+        </div>
+        <div class="L1Div">
+            <img class="image" src="/Images/DLFPromenade.jpg" alt="DLF Promenade">
+            <div class="L2Div">
+
+            </div>
+        </div>
+        <div class="L1Div">
+            <img class="image" src="/Images/V3S.avif" alt="V3S Mall">
+            <div class="L2Div">
+
+            </div>
+        </div>
+        <div class="L1Div">
+            <img class="image" src="/Images/AmbienceMall.avif" alt="Ambience Mall">
+            <div class="L2Div">
+
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
