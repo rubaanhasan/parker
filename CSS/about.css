@@ -1,0 +1,12 @@
+#hasNavBar {
+    font-family: "Poppins", sans-serif;
+    height: 15vh;
+    background-image: url(Images/Background1.jpg);
+    width: 99vw;
+  }
+  
+ 
+  #NavLogo{
+    height: 15vh;
+    width: auto;
+  }

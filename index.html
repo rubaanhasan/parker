@@ -16,33 +16,10 @@
             scroll-behavior: smooth;
         }
         #BG_Img1 {
-            height: 100vh;
+            height: 101vh;
             width: 100vw;
             margin: 0;
         }
-
-        #Parker_Top {
-            display: inline-block;
-            position: absolute;
-            top: 1vh;
-            width: 30vw;
-            left: 10vw;
-        }
-
-        nav ul li {
-            display: inline-block;
-            color: white;
-            margin: 10px;
-        }
-
-        nav ul {
-            position: absolute;
-            top: 8vh;
-            width: 30vw;
-            right: 3vw;
-            font-size: 25px;
-        }
-
         div h2 {
             display: inline-block;
             position: absolute;
@@ -113,18 +90,18 @@
         }
         .Dropdown{
             position: relative;
-            bottom: 6.5vh;
-            left: 50vw;
+            bottom: 8.5vh;
+            left: 45vw;
             font-size: larger;
         } 
         #GMap{
             display: inline-block;
             margin: 20px 0px;
             padding: 0;
-            width: 40vw;
-            height: 40vh;
+            width: 90vw;
+            height: 70vh;
+            left: 5vw;
             position: relative;
-            left: 30vw;
             border: 2px solid black;
         }
         .L0Div{
@@ -144,8 +121,8 @@
 
         }
         .image{
-            width: 200px;
-            height: 200px;
+            width: 230px;
+            height: 230px;
             border-radius: 7px;
             display: inline-block;
         }
@@ -200,13 +177,36 @@
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="manifest" href="/site.webmanifest">
     <link rel="shortcut icon" href="favicon_io/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/CSS/navbar.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
+    <nav class="navbar navbar-expand-lg" style="position: absolute;font-family: 'Poppins', sans-serif;">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="width: 99vw;">
+          <img class="form-inline" src="/Images/Parker_Top.png" alt="Logo" id="NavLogo">          
+          <ul class="nav ms-auto justify-content-end background-color-dark">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/about.html">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="/contact.html">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="/login.html">Login</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     <div>
-        <img src="Images/Background1.jpg" alt="Background1" id="BG_Img1"><img src="Images/Parker_Top.png" alt="P_Logo"
-            id="Parker_Top">
-        <nav>
+        <img src="Images/Background1.jpg" alt="Background1" id="BG_Img1">
+        <!-- <nav>
             <ul>
                 <a href="index.html">
                     <li>Home</li>
@@ -221,14 +221,36 @@
                     <li>Login</li>
                 </a>
             </ul>
-        </nav>
+        </nav> -->
+        <!-- <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <img class="form-inline" src="/Images/Parker_Top.png" alt="Logo" id="NavLogo">          
+                <ul class="nav ms-auto justify-content-end background-color-dark">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/contact.html">Contact Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link " href="/login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </nav> -->
         <h2>Experience the Convenience of Smart Parking</h2><img src="Images/Car.png" alt="Car" id="Car">
         <h3 class="h13">Unlock a new era in Parking Management and redefine the way you park by Parking at your
             fingertips</h3>
             <a href="#SectionExplore"><img src="Images/Explore.png" alt="Explore" id="Explore"></a>
-    </div>
-    <div id="SectionExplore">
-        <img src="Images/BGExplore.png" alt="BackgroundExplore" id="BG_Explore">
+        </div>
+        <div id="SectionExplore">
+            <img src="Images/BGExplore.png" alt="BackgroundExplore" id="BG_Explore">
         <h3 id="ExploreText">EXPLORE</h3>
         <label for="Start" class="Dropdown">Start date:</label>
         <input type="date" class="Dropdown" id="Start" name="trip-Start" value="2023-10-22" min="2023-10-22" max="2023-11-22" />
