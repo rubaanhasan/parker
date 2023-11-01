@@ -1,0 +1,61 @@
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .footer-top { padding: 40px 0; }    
+  }
+  
+  @media (min-width: 768px) and (max-width: 991px) {
+    .footer-top { padding: 40px 0; }
+    .footer-contact i { padding-right: 5px; }
+  }
+  
+  @media (max-width: 767px) {
+    .footer-top { padding: 40px 0; text-align: center; }
+    .footer-contact i { padding-right: 5px; }
+    .footer-bottom, .footer-social { text-align: center; }
+    .footer-social a { margin: 0 10px; }
+    
+  }
+  .footer-top { padding: 60px 0; background: #333; text-align: left; color: #aaa; }
+.footer-top h3 { padding-bottom: 10px; color: #fff; }
+
+.footer-about img.logo-footer { max-width: 74px; margin-top: 0; margin-bottom: 18px; }
+.footer-about p a { border: 0; }
+.footer-about p a:hover, .footer-about p a:focus { border: 0; }
+
+.footer-contact p { word-wrap: break-word; }
+.footer-contact i { padding-right: 10px; font-size: 18px; color: #666; }
+.footer-contact p a { border: 0; }
+.footer-contact p a:hover, .footer-contact p a:focus { border: 0; }
+
+.footer-links a { color: #aaa; border: 0; }
+.footer-links a:hover, .footer-links a:focus { color: #fff; }
+
+.footer-bottom { padding: 15px 0 17px 0; background: #444; text-align: left; color: #aaa; }
+
+.footer-social { padding-top: 3px; text-align: right; }
+.footer-social a { margin-left: 20px; color: #777; border: 0; }
+.footer-social a:hover, .footer-social a:focus { color: #79a05f; border: 0; }
+.footer-social i { font-size: 24px; vertical-align: middle; }
+
+.footer-copyright { padding-top: 5px; }
+.footer-copyright a { color: #fff; border: 0; }
+.footer-copyright a:hover, .footer-copyright a:focus { color: #aaa; border: 0; }
+.fab {
+  font-family: Font Awesome\ 5 Brands;
+}
+.fa, .fab, .fal, .far, .fas {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-style: normal;
+  font-variant: normal;
+  text-rendering: auto;
+  line-height: 1;
+}
+a[href^='mailto']::before {
+  content: '📧 ';
+}
+
+a[href^='tel']::before {
+  content: '📞 ';
+}
