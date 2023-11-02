@@ -1,18 +1,7 @@
 body{
   overflow-x: hidden;
 }
-#hasNavBar {
-    font-family: "Poppins", sans-serif;
-    height: 15vh;
-    background-image: url(Images/Background1.jpg);
-    width: 99vw;
-    margin: 0;
-    padding: 0;
-  }
-  #NavLogo{
-    height: 15vh;
-    width: auto;
-  }
+
   .giveBackground{
     background-image: url(/Images/Background1.jpg);
     background-repeat: no-repeat;

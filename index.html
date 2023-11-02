@@ -92,7 +92,7 @@
             position: relative;
             bottom: 8.5vh;
             left: 45vw;
-            font-size: larger;
+            font-size:smaller;
         } 
         #GMap{
             display: inline-block;
@@ -181,6 +181,7 @@
     <link rel="stylesheet" href="/CSS/navbar.css">
     <link rel="stylesheet" href="/CSS/footer.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -214,7 +215,7 @@
             <img src="Images/BGExplore.png" alt="BackgroundExplore" id="BG_Explore">
         <h3 id="ExploreText">EXPLORE</h3>
         <label for="Start" class="Dropdown">Start date:</label>
-        <input type="date" class="Dropdown" id="Start" name="trip-Start" value="2023-10-22" min="2023-10-22" max="2023-11-22" />
+        <input type="date" class="Dropdown" id="Start" name="trip-Start" value="" min="" max="2023-12-31" />
         <select class="Dropdown" name="InTime" id="InTime">
             <option value="no-value">Select In Time</option>
             <option value="9">09:00</option>
@@ -230,7 +231,7 @@
             <option value="19">19:00</option>
         </select>
         <label for="End" class="Dropdown">End date:</label>
-        <input type="date" id="End" name="trip-End" value="2023-10-22" min="2023-10-22" max="2023-11-22" class="Dropdown" />
+        <input type="date" id="End" name="trip-End" value="2023-12-31" min="" max="2023-12-31" class="Dropdown" />
         <select class="Dropdown" name="OutTime" id="OutTime">
             <option value="no-value">Select Out Time</option>
             <option value="9">09:00</option>
@@ -260,7 +261,10 @@
                 <h4 class="innerText3">Maximum Parking Capacity : 4000</h4>
                 <br>
                 <br>    
-                <input class="favorite styled" type="button" value="View Availability" />
+                <input class="favorite styled" type="button" value="View Availability" style="display: inline;"/>
+                <span id="Availability1"></span>
+                <input class="favorite styled prebook" type="button" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
+                <span id="Availability5"></span>
             </div>
         </div>
         <div class="L1Div">
@@ -271,7 +275,10 @@
                 <h4 class="innerText3">Maximum Parking Capacity : 2000</h4>
                 <br>
                 <br>
-                <input class="favorite styled" type="button" value="View Availability" />
+                <input class="favorite styled" type="button" value="View Availability" style="display: inline;"/>
+                <span id="Availability2"></span>
+                <input class="favorite styled prebook" type="button" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
+                <span id="Availability6"></span>
             </div>
         </div>
         <div class="L1Div">
@@ -282,7 +289,10 @@
                 <h4 class="innerText3">Maximum Parking Capacity : 4000</h4>
                 <br>
                 <br>
-                <input class="favorite styled" type="button" value="View Availability" />
+                <input class="favorite styled" type="button" value="View Availability" style="display: inline;"/>
+                <span id="Availability3"></span>
+                <input class="favorite styled prebook" type="button" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
+                <span id="Availability7"></span>
             </div>
         </div>
         <div class="L1Div">
@@ -293,7 +303,10 @@
                 <h4 class="innerText3">Maximum Parking Capacity : 4000</h4>
                 <br>
                 <br>
-                <input class="favorite styled" type="button" value="View Availability" />
+                <input class="favorite styled" type="button" value="View Availability" style="display: inline;"/>
+                <span id="Availability4"></span>
+                <input class="favorite styled prebook" type="button" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
+                <span id="Availability8"></span>
             </div>
         </div>
     </div>
@@ -302,14 +315,14 @@
           <div class="container">
             <div class="row">
               <div class="col-md-3 footer-about wow fadeInUp">
-                <img class="logo-footer" src="/Images/Cut_PLogo.png" alt="logo-footer" data-at2x="assets/img/logo.png">
+                <img class="logo-footer" src="/Images/Parker_Top.png" alt="logo-footer" data-at2x="assets/img/logo.png">
                 <p>
                   We are a young company always looking for new and creative ideas to help you in your everyday work.
                 </p>
                     </div>
               <div class="col-md-4 offset-md-1 footer-contact wow fadeInDown">
                 <h3>Contact Us for any Query</h3>
-                    <i class="fas fa-map-marker-alt"></i>Address: IIT Roorkee</p>
+                <p><a href="https://maps.app.goo.gl/dvGjytmnwkACUtrA8" style="text-decoration: none;"><i class="fas fa-map-marker-alt" style="margin-right: 9px;"></i>Address: IIT Roorkee</p></a>
                     <p><a href="tel:+919067313978" style="text-decoration: none;"><i class="fas fa-phone"></i> Phone: +91-9067313978</a></p>
                     <p><a href="mailto:darshan_rb@cs.iitr.ac.in" style="text-decoration: none;"><i class="fas fa-envelope"></i> Email: darshan_rb@cs.iitr.ac.in</a></p>
                     </div>
@@ -337,6 +350,7 @@
           </div>
         </div>
       </footer>
+      <script src="/JS/index.js"></script>
 </body>
 
 </html>
