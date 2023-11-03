@@ -1,14 +1,23 @@
-let elem=document.getElementById("Start")
+let elem=document.getElementById("Start1")
 let yourDate = new Date().toLocaleDateString('en-CA')
-// console.log(yourDate)
 elem.setAttribute("value",yourDate)
 elem.setAttribute("min",yourDate)
 elem.setAttribute("max",yourDate)
 
+elem=document.getElementById("Start2")
+yourDate = new Date().toLocaleDateString('en-CA')
+elem.setAttribute("value",yourDate)
+elem.setAttribute("min",yourDate)
+elem.setAttribute("max",yourDate)
 
-Mall Name : 
-In Time : 
-Out Time : 
-Date : 
-Number Plate : 
-Price :  
+elem=document.getElementById("Start3")
+yourDate = new Date().toLocaleDateString('en-CA')
+elem.setAttribute("value",yourDate)
+elem.setAttribute("min",yourDate)
+elem.setAttribute("max",yourDate)
+
+elem=document.getElementById("Start4")
+yourDate = new Date().toLocaleDateString('en-CA')
+elem.setAttribute("value",yourDate)
+elem.setAttribute("min",yourDate)
+elem.setAttribute("max",yourDate)

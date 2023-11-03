@@ -88,12 +88,12 @@
             border: 1px solid black;
             scroll-behavior: smooth;
         }
-        .Dropdown{
+        /* .Dropdown{
             position: relative;
             bottom: 8.5vh;
             left: 45vw;
             font-size:smaller;
-        } 
+        }  */
         #GMap{
             display: inline-block;
             margin: 20px 0px;
@@ -161,7 +161,10 @@
             inset 2px 2px 3px rgba(255, 255, 255, 0.6),
             inset -2px -2px 3px rgba(0, 0, 0, 0.6);
         }
-
+        .Dropdown{
+            font-size: 90% ;
+            margin-bottom: 5px;
+        } 
     .styled:hover {
     background-color: rgb(10, 100, 255,0.71);
     }
@@ -214,38 +217,6 @@
         <div id="SectionExplore">
             <img src="Images/BGExplore.png" alt="BackgroundExplore" id="BG_Explore">
         <h3 id="ExploreText">EXPLORE</h3>
-        <label for="Start" class="Dropdown">Start date:</label>
-        <input type="date" class="Dropdown" id="Start" name="trip-Start" value="" min="" max="2023-12-31" />
-        <select class="Dropdown" name="InTime" id="InTime">
-            <option value="no-value">Select In Time</option>
-            <option value="9">09:00</option>
-            <option value="10">10:00</option>
-            <option value="11">11:00</option>
-            <option value="12">12:00</option>
-            <option value="13">13:00</option>
-            <option value="14">14:00</option>
-            <option value="15">15:00</option>
-            <option value="16">16:00</option>
-            <option value="17">17:00</option>
-            <option value="18">18:00</option>
-            <option value="19">19:00</option>
-        </select>
-        <label for="End" class="Dropdown">End date:</label>
-        <input type="date" id="End" name="trip-End" value="2023-12-31" min="" max="2023-12-31" class="Dropdown" />
-        <select class="Dropdown" name="OutTime" id="OutTime">
-            <option value="no-value">Select Out Time</option>
-            <option value="9">09:00</option>
-            <option value="10">10:00</option>
-            <option value="11">11:00</option>
-            <option value="12">12:00</option>
-            <option value="13">13:00</option>
-            <option value="14">14:00</option>
-            <option value="15">15:00</option>
-            <option value="16">16:00</option>
-            <option value="17">17:00</option>
-            <option value="18">18:00</option>
-            <option value="19">19:00</option>
-        </select>
     </div>
 
     <div>
@@ -257,10 +228,43 @@
             <img class="image" src="/Images/CrossRiverMall.jpg" alt="Cross River Mall">
             <div class="L2Div">
                 <h3 class="innerText">Cross River Mall</h3>
-                <h4 class="innerText2">East Delhi's massive shopping precinct, the Cross River Mall spreads across many acres of land and is too big to be explored in one day.It is located in Shahdara's business district in Delhi.</h4>
-                <h4 class="innerText3">Maximum Parking Capacity : 4000</h4>
+                <h4 class="innerText2">East Delhi's massive shopping precinct, the Cross River Mall spreads across many acres of land and is too big to be explored in one day.It's located in Shahdara.</h4>
+                <h4 class="innerText3">Maximum Parking Capacity : 4000 , Rate = 20Rs/hr</h4>
                 <br>
-                <br>    
+                <div class="display-flex">
+                    <!-- <div style="width: 50%;"> -->
+                    <label for="Start1" class="Dropdown">Date:</label>
+                    <input type="date" class="Dropdown" id="Start1" name="trip-Start" value="2023-10-22" min="2023-10-22" max="2023-11-22" />
+                    <select class="Dropdown" name="InTime" id="InTime">
+                        <option value="no-value">Select In Time</option>
+                        <option value="9" name ="9">09:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="12">12:00</option>
+                        <option value="13">13:00</option>
+                        <option value="14">14:00</option>
+                        <option value="15">15:00</option>
+                        <option value="16">16:00</option>
+                        <option value="17">17:00</option>
+                        <option value="18">18:00</option>
+                        <option value="19">19:00</option>
+                    </select>
+                
+                    <select class="Dropdown" name="OutTime" id="OutTime">
+                        <option value="no-value">Select Out Time</option>
+                        <option value="9">09:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="12">12:00</option>
+                        <option value="13">13:00</option>
+                        <option value="14">14:00</option>
+                        <option value="15">15:00</option>
+                        <option value="16">16:00</option>
+                        <option value="17">17:00</option>
+                        <option value="18">18:00</option>
+                        <option value="19">19:00</option>
+                    </select> 
+                </div>
                 <input class="favorite styled" type="button" value="View Availability" style="display: inline;"/>
                 <span id="Availability1"></span>
                 <input class="favorite styled prebook" type="button" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
@@ -271,10 +275,41 @@
             <img class="image" src="/Images/DLFPromenade.jpg" alt="DLF Promenade">
             <div class="L2Div">
                 <h3 class="innerText">DLF Promenade</h3>
-                <h4 class="innerText2">Located on Nelson Mandela Road in the heart of Vasant Kunj is DLF Promenade , the best in Vasant Kunj.It is fully equipped with everything and the latest trendy apparel. It's also known as Delhi's Fashion Capital.</h4>
-                <h4 class="innerText3">Maximum Parking Capacity : 2000</h4>
-                <br>
-                <br>
+                <h4 class="innerText2">Located in the heart of Vasant Kunj is DLF Promenade ,the best in Vasant Kunj.Fully equipped with latest trendy apparel. It's also known as Delhi's Fashion Capital.</h4>
+                <h4 class="innerText3">Maximum Parking Capacity : 2000 , Rate = 20Rs/hr</h4>
+                <div class="display-flex">
+                    <label for="Start2" class="Dropdown">Date:</label>
+                    <input type="date" class="Dropdown" id="Start2" name="trip-Start" value="2023-10-22" min="2023-10-22" max="2023-11-22" />
+                    <select class="Dropdown" name="InTime" id="InTime">
+                        <option value="no-value">Select In Time</option>
+                        <option value="9" name ="9">09:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="12">12:00</option>
+                        <option value="13">13:00</option>
+                        <option value="14">14:00</option>
+                        <option value="15">15:00</option>
+                        <option value="16">16:00</option>
+                        <option value="17">17:00</option>
+                        <option value="18">18:00</option>
+                        <option value="19">19:00</option>
+                    </select>
+                
+                    <select class="Dropdown" name="OutTime" id="OutTime">
+                        <option value="no-value">Select Out Time</option>
+                        <option value="9">09:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="12">12:00</option>
+                        <option value="13">13:00</option>
+                        <option value="14">14:00</option>
+                        <option value="15">15:00</option>
+                        <option value="16">16:00</option>
+                        <option value="17">17:00</option>
+                        <option value="18">18:00</option>
+                        <option value="19">19:00</option>
+                    </select> 
+                </div>
                 <input class="favorite styled" type="button" value="View Availability" style="display: inline;"/>
                 <span id="Availability2"></span>
                 <input class="favorite styled prebook" type="button" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
@@ -285,10 +320,42 @@
             <img class="image" src="/Images/V3S.avif" alt="V3S Mall">
             <div class="L2Div">
                 <h3 class="innerText">V3S Mall</h3>
-                <h4 class="innerText2">Spread over an area of five acres, it is one of the trendiest shopping destinations in Laxmi Nagar,East Delhi. V3S Mall offers high quality life style, shopping and eating options under one roof.</h4>
-                <h4 class="innerText3">Maximum Parking Capacity : 4000</h4>
-                <br>
-                <br>
+                <h4 class="innerText2">Covers 5 acres, it is one of the trendiest shopping destinations in Laxmi Nagar,East Delhi. Mall offers high quality life style, shopping and eating options under one roof.</h4>
+                <h4 class="innerText3">Maximum Parking Capacity : 4000 , Rate = 20Rs/hr</h4>
+                <div class="display-flex">
+                    <!-- <div style="width: 50%;"> -->
+                    <label for="Start3" class="Dropdown">Date:</label>
+                    <input type="date" class="Dropdown" id="Start3" name="trip-Start" value="2023-10-22" min="2023-10-22" max="2023-11-22" />
+                    <select class="Dropdown" name="InTime" id="InTime">
+                        <option value="no-value">Select In Time</option>
+                        <option value="9" name ="9">09:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="12">12:00</option>
+                        <option value="13">13:00</option>
+                        <option value="14">14:00</option>
+                        <option value="15">15:00</option>
+                        <option value="16">16:00</option>
+                        <option value="17">17:00</option>
+                        <option value="18">18:00</option>
+                        <option value="19">19:00</option>
+                    </select>
+                
+                    <select class="Dropdown" name="OutTime" id="OutTime">
+                        <option value="no-value">Select Out Time</option>
+                        <option value="9">09:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="12">12:00</option>
+                        <option value="13">13:00</option>
+                        <option value="14">14:00</option>
+                        <option value="15">15:00</option>
+                        <option value="16">16:00</option>
+                        <option value="17">17:00</option>
+                        <option value="18">18:00</option>
+                        <option value="19">19:00</option>
+                    </select> 
+                </div>
                 <input class="favorite styled" type="button" value="View Availability" style="display: inline;"/>
                 <span id="Availability3"></span>
                 <input class="favorite styled prebook" type="button" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
@@ -299,14 +366,59 @@
             <img class="image" src="/Images/AmbienceMall.avif" alt="Ambience Mall">
             <div class="L2Div">
                 <h3 class="innerText">Ambience Mall</h3>
-                <h4 class="innerText2">Airy, sophisticated mall offering global retail shops, restaurants, a bowling alley & movie theater. Ambience Mall is a one stop place for all varieties of shopping , food , entertainment.</h4>
-                <h4 class="innerText3">Maximum Parking Capacity : 4000</h4>
-                <br>
-                <br>
+                <h4 class="innerText2">Airy, sophisticated mall offering global retail shops, restaurants, a bowling alley & movie theater.It is one stop place for all varieties of shopping , food , entertainment.</h4>
+                <h4 class="innerText3">Maximum Parking Capacity : 4000 , Rate = 20Rs/hr</h4>
+                <div class="display-flex">
+                    <label for="Start4" class="Dropdown">Date:</label>
+                    <input type="date" class="Dropdown" id="Start4" name="trip-Start" value="2023-10-22" min="2023-10-22" max="2023-11-22" />
+                    <select class="Dropdown" name="InTime" id="InTime">
+                        <option value="no-value">Select In Time</option>
+                        <option value="9" name ="9">09:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="12">12:00</option>
+                        <option value="13">13:00</option>
+                        <option value="14">14:00</option>
+                        <option value="15">15:00</option>
+                        <option value="16">16:00</option>
+                        <option value="17">17:00</option>
+                        <option value="18">18:00</option>
+                        <option value="19">19:00</option>
+                    </select>
+                
+                    <select class="Dropdown" name="OutTime" id="OutTime">
+                        <option value="no-value">Select Out Time</option>
+                        <option value="9">09:00</option>
+                        <option value="10">10:00</option>
+                        <option value="11">11:00</option>
+                        <option value="12">12:00</option>
+                        <option value="13">13:00</option>
+                        <option value="14">14:00</option>
+                        <option value="15">15:00</option>
+                        <option value="16">16:00</option>
+                        <option value="17">17:00</option>
+                        <option value="18">18:00</option>
+                        <option value="19">19:00</option>
+                    </select> 
+                </div>
                 <input class="favorite styled" type="button" value="View Availability" style="display: inline;"/>
                 <span id="Availability4"></span>
                 <input class="favorite styled prebook" type="button" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
                 <span id="Availability8"></span>
+            </div>
+        </div>
+        <div class="L1Div" style="display: none;">
+            <img class="image" src="/Images/FinalInvoice.webp" alt="Final Invoice">
+            <div class="L2Div">
+                <h3 class="innerText">Final Invoice</h3>
+            <h6>Mall Name : </h6>
+            <h6>In Time : <h6>
+            <h6>Out Time : </h6>
+            <h6>Date : </h6>
+            <h6>Number Plate : </h6>
+            <h6>Price :  </h6>
+        </h4>               
+            <input class="favorite styled" type="button" value="Pay Now" style="display: inline;"/>
             </div>
         </div>
     </div>
