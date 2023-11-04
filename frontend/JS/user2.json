@@ -1,0 +1,23 @@
+[
+    {
+       "numberplate":"DL02SC6969",
+       "in-time":"09:00",
+       "out-time":"14:00",
+       "date": "7/11/2023",
+       "status": "Accepted"
+    },
+    {
+        "numberplate":"ST01BC1211",
+        "in-time":"10:00",
+        "out-time":"13:00",
+        "date":"7/11/2023",
+        "status":"Accepted"
+     }, 
+     { 
+        "numberplate":"DA66RU6666",
+        "in-time":"11:00",
+        "out-time":"15:00",
+        "date":"7/11/2023",
+        "status":"Accepted"
+     }
+   ]
