@@ -1,5 +1,0 @@
-Python 3.11.6
-pip 23.3.1 
-cv2 4.8.1
-numpy 1.26.1
-pandas 2.1.2
