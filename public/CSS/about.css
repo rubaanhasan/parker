@@ -1,0 +1,47 @@
+body{
+  overflow-x: hidden;
+}
+
+  .giveBackground{
+    background-image: url(/Images/Background1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 120vh;
+    height: 85vh;
+  }
+  .makeFlex{
+    
+    margin: 0 10vw;
+    padding: 0;
+    overflow: hidden;
+  }
+  .makeGrid{
+    display: grid;
+    color: white;
+    height: 70vh;
+    grid-template-columns:2fr 1fr 1fr 2fr;
+    grid-template-rows: 35% 15% 40% 10%;
+  }
+  .GridItem{
+    color: white;
+    /* display: inline; */
+  }
+  #GridItem1{
+    grid-column: 1/4;
+  }
+  #GridItem3{
+    grid-column: 1/5;
+  }
+  .GridImage{
+    width : 80%;
+  }
+  #GridItem4{
+    grid-column: 1/2;
+  }
+  #GridItem5{
+    grid-column: 2/5;
+  }
+  #GridItem6{
+    grid-column: 1/5;
+  }
+  
+
