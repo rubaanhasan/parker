@@ -1,0 +1,32 @@
+body {
+  overflow-x: hidden;
+}
+
+.giveBackground {
+  background-image: url(Background1.jpg);
+  background-repeat: no-repeat;
+  background-size: 100vw 120vh;
+  height: 85vh;
+}
+.userProfile {
+  width: 80vw;
+  margin: 0px 10vw;
+  padding: 0;
+  overflow: hidden;
+}
+div div h2 {
+  margin-top: 20px;
+}
+.makeGrid {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  width: 80vw;
+  margin: 0px 10vw;
+  height: 30vh;
+  border: 1px solid white;
+}
+#hasTable {
+  display: inline-block;
+  border: 1px solid white;
+  width: 80vw;
+}

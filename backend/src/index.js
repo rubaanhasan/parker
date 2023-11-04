@@ -18,7 +18,6 @@ const cors = require("cors");
 const publicPath = path.join(__dirname, "../../frontend/public/CSS");
 const imagesPath = path.join(__dirname, "../../frontend/public/Images");
 const faviconPath = path.join(__dirname, "../../frontend/public/favicon_io");
-const jsPath = path.join(__dirname, "../../frontend/JS");
 
 const port = 3000;
 const app = express();
@@ -30,7 +29,6 @@ app.set("views", path.join(__dirname, "../../frontend/views")); // Set the views
 app.use(express.static(publicPath));
 app.use(express.static(imagesPath));
 app.use(express.static(faviconPath));
-app.use(express.static(jsPath));
 
 // Route for the success page
 app.get("/index", (req, res) => {
