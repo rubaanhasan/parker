@@ -1,0 +1,20 @@
+.nav-item{
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    width: 150px;
+    text-align: center;
+    color: white;
+}
+#NavLogo{
+    height: 15vh;
+    width: auto;
+  }
+  #hasNavBar {
+    font-family: "Poppins", sans-serif;
+    height: 15vh;
+    background-image: url(Images/Background1.jpg);
+    width: 99vw;
+    margin: 0;
+    padding: 0;
+  }
