@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+        <meta charset="utf-8" />
+        <title>Razorpay Web-Integration</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    
+    <title>Parking Charges</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        /* h1 {
+            color: #333;
+        } */
+        p {
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Parking Charges</h1>
+        <p>Your parking charges will appear here:</p>
+        <div id="parkingCharges">
+            <!-- Charges will be displayed here dynamically using JavaScript -->
+        </div>
+    </div>
+    <div><form class="pay-form">
+        <!-- <input type="hidden" name="name" value="Shoes"> -->
+        <input type="hidden" name="amount" value="1500">
+        <!-- <input type="hidden" name="description" value="Shoes Buying"> -->
+        <input type="submit" id="submitButton" value="Pay Now" style="display: none;" >
+    </form></div>
+    <!-- <script>
+        // You can use JavaScript to update the charges dynamically
+        // For example:
+        const calculatedCharges = 500; // Replace with your calculated charges
+        const chargesElement = document.getElementById("parkingCharges");
+        chargesElement.innerHTML = `<p>Total Charges: $${calculatedCharges}</p>`;
+    </script> -->
+</body>
+</html>
+
+
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+
+<script>
+    // Frontend JavaScript
+    //const myForm = document.getElementById("myForm");
+        const submitButton = document.getElementById("submitButton");
+
+        // Simulate a backend operation by making an API request
+        fetch('/triggerBackendOperation')
+            .then(response => response.json())
+            .then(data => {
+                // After receiving a successful response, trigger the form submission
+                if (data.success) {
+                    submitButton.click();
+                }
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+    
+
+    $(document).ready(function(){
+        
+
+  // Make an AJAX request to the server
+//   $.ajax({
+//     url: "/executeBackendFunction",
+//     method: "POST",
+//     success: function (data) {
+//       // After successful response from the server, trigger the form submission
+//       submitForm();
+//     },
+//     error: function (error) {
+//       console.error("Error from the server:", error);
+//     }
+//   });
+
+
+        $('.pay-form').submit(function(e){
+            e.preventDefault();
+    
+            var formData = $(this).serialize();
+    
+            $.ajax({
+                url:"/createexitOrder",
+                type:"POST",
+                data: formData,
+                success:function(res){
+                    if(res.success){
+                        var options = {
+                            "key": ""+res.key_id+"",
+                            "amount": ""+res.amount+"",
+                            "currency": "INR",
+                            //"name": ""+res.product_name+"",
+                            "description": ""+res.description+"",
+                            //"image": "https://dummyimage.com/600x400/000/fff",
+                            "order_id": ""+res.order_id+"",
+                            "handler": function (response){
+                                alert("Payment Succeeded");
+                                // window.open("/","_self")
+                            },
+                            "prefill": {
+                                "contact":""+res.contact+"",
+                                "name": ""+res.name+"",
+                                "email": ""+res.email+""
+                            },
+                            "notes" : {
+                                "description":""+res.description+""
+                            },
+                            "theme": {
+                                "color": "#2300a3"
+                            }
+                        };
+                        var razorpayObject = new window.Razorpay(options);
+                        razorpayObject.on('payment.failed', function (response){
+                                alert("Payment Failed");
+                        });
+                        razorpayObject.open();
+                        e.preventDefault();
+                    }
+                    else{
+                        alert(res.msg);
+                    }
+                }
+            })
+    
+        });
+    });
+    
+    </script>
+    
