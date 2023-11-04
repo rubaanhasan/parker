@@ -8,12 +8,23 @@ const {
   ExitCollection,
   Prebook,
 } = require("../models/mongodb");
+const { countRecords } = require("../models/mongo");
 const randomstring = require("randomstring");
 const nodemailer = require("nodemailer");
 const path = require("path");
 const cors = require("cors");
 
+require("dotenv").config();
+var engines = require("consolidate"); //rb
 // dotenv.config();
+const Razorpay = require("razorpay");
+const cons = require("consolidate");
+//const { RAZORPAY_ID_KEY, RAZORPAY_SECRET_KEY } = process.env;
+
+const razorpayInstance = new Razorpay({
+  key_id: "rzp_test_a1bgTfOzP7ZaC4",
+  key_secret: "QDTr46VyzzsI5D0vCXztaJce",
+});
 
 const publicPath = path.join(__dirname, "../../frontend/public/CSS");
 const imagesPath = path.join(__dirname, "../../frontend/public/Images");
@@ -22,6 +33,7 @@ const jsPath = path.join(__dirname, "../../frontend/JS");
 
 const port = 3000;
 const app = express();
+var http = require("http").Server(app);
 app.use(express.json()); // For JSON data
 app.use(express.urlencoded({ extended: true })); // For form data
 app.use(cors());
@@ -59,8 +71,11 @@ app.get("/login", (req, res) => {
   res.render("login");
 });
 
+//console.log(process.env.RAZORPAY_ID_KEY);
 // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// const paymentRoute = require("../routes/paymentRoute");
 
+// app.use("/afterlogin", paymentRoute);
 function timeStringToSeconds(timeStr) {
   const [hours, minutes, seconds] = timeStr.split(":").map(Number);
   return hours * 3600 + minutes * 60 + seconds;
@@ -221,8 +236,72 @@ app.post("/forget-password", async (req, res) => {
     res.status(400).send({ success: false, msg: error.message });
   }
 });
+// app.post("/view", async (req, res) => {
+//   try {
+//     console.log(req.body);
+//     console.log(req.body.obj.inTime);
+//     await countRecords(); // Call the countRecords function to count the records within the specified time range
+// res.status(200).json({
+//   success: true,
+//   msg: `Number of records within the time range: ${count}`,
+// });
+//     res.json({ message: "Records counted within the time range." });
+//   } catch (error) {
+//     console.log("gg");
+//     console.error("Error:", error);
+//     res.status(500).json({ error: "An error occurred during the operation." });
+//   }
+// });
+const MongoClient = require("mongodb").MongoClient;
+const url =
+  "mongodb+srv://birhadedarshan212:ooad@ooad.tipepbx.mongodb.net/?retryWrites=true&w=majority";
 
-app.post("/prebook", async (req, res) => {
+app.post("/view", async (req, res) => {
+  const client = new MongoClient(url, {
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
+  });
+
+  const startTimeInSeconds = req.body.obj.intime; // Use req.body.obj.intime as startTimeInSeconds
+  const endTimeInSeconds = req.body.obj.endTime; // Use req.body.obj.endTime as endTimeInSeconds
+
+  const dbName = "test"; // Include dbName directly
+  const collectionName = "prebook"; // Include collectionName directly
+
+  try {
+    await client.connect();
+    const db = client.db(dbName);
+    const collection = db.collection(collectionName);
+
+    const count = await collection.countDocuments({
+      $or: [
+        {
+          inTime: { $gte: startTimeInSeconds, $lte: endTimeInSeconds }, // Check if inTime is within the range
+        },
+        {
+          exitTime: { $gte: startTimeInSeconds, $lte: endTimeInSeconds }, // Check if exitTime is within the range
+        },
+        {
+          inTime: { $lte: startTimeInSeconds },
+          exitTime: { $gte: endTimeInSeconds },
+        },
+      ],
+    });
+    console.log(`Number of records within the time range: ${count}`);
+    res.redirect("http://localhost:3000/about");
+    // res.status(200).json({
+    //   success: true,
+    //   msg: `Number of records within the time range: ${count}`,
+    // });
+  } catch (err) {
+    console.error("Error: ", err);
+    res.status(500).json({ error: "An error occurred during the operation." });
+  } finally {
+    client.close();
+  }
+});
+
+app.post("/createOrder", async (req, res) => {
   console.log("hi");
   const { InTime, OutTime, NumberPlate } = req.body;
 
@@ -251,12 +330,45 @@ app.post("/prebook", async (req, res) => {
         });
         console.log(prebookData);
         await Prebook.insertMany([prebookData]);
-        res.status(201).json({ message: "Data stored successfully" });
+
+        try {
+          const amount = payableAmount * 100;
+          const options = {
+            amount: amount,
+            currency: "INR",
+            receipt: "razorUser@gmail.com",
+          };
+
+          razorpayInstance.orders.create(options, (err, order) => {
+            if (!err) {
+              res.status(200).send({
+                success: true,
+                msg: "Order Created",
+                order_id: order.id,
+                amount: amount,
+
+                key_id: "rzp_test_a1bgTfOzP7ZaC4",
+                product_name: req.body.name,
+                description: req.body.description,
+                contact: "8567345632",
+                name: "Rubaan Hasan",
+                email: "rubaanhasan123@gmail.com",
+              });
+            } else {
+              res
+                .status(400)
+                .send({ success: false, msg: "Something went wrong!" });
+            }
+          });
+        } catch (error) {
+          console.log(error.message);
+        }
+        // res.status(201).json({ message: "Data stored successfully" });
       } else {
         res.status(400).json({ message: "Invalid data" });
       }
     } catch (error) {
-      console.error("Error during signup:", error);
+      console.error("Error :", error);
       res
         .status(500)
         .json({ message: "An error occurred while saving the data" });

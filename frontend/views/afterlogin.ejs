@@ -174,6 +174,7 @@
         height: 3vh;
     }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -224,7 +225,7 @@
     <div class="L0Div">
         <div class="L1Div text-center" style="height: 6vh;width: 80vw;margin-top: 15px;margin-left: 10vw;">
            
-        <form action="http://localhost:3000/prebook" method="post" style="display: flex;width: 80vw;padding: 10px 10px;justify-content: space-around;">
+        <form class="pay-form2" id="AForm" action="http://localhost:3000/createOrder" method="post" style="display: flex;width: 80vw;padding: 10px 10px;justify-content: space-around;">
             Set You Prebooking Details : 
             <label for="InTime">In Time:</label>
             <input type="text" name="InTime" id="InTime" placeholder="HH:MM:SS" required>
@@ -237,20 +238,25 @@
 
             <input type="hidden" name="PayableAmount" id="PayableAmount" style="display: none;" value="1">
             
-            <input type="hidden" name="0" id="MallNumber" style="display: none;" value="0">
+            <input type="hidden" name="MallNumber" id="MallNumber" style="display: none;" value="0">
 
+            <!-- <button type="submit" id="pay-form" style="display: none;">Submit</button> -->
+            
             <button type="submit" id="SubmitForm" style="display: none;">Submit</button>
-         </form>
+        </form>
 </div>
 <div class="L1Div">
+
     <img class="image" src="CrossRiverMall.jpg" alt="Cross River Mall">
     <div class="L2Div">
         <h3 class="innerText">Cross River Mall</h3>
         <h4 class="innerText2">East Delhi's massive shopping precinct, the Cross River Mall spreads across many acres of land and is too big to be explored in one day.It's located in Shahdara.</h4>
         <h4 class="innerText3">Parking Capacity : 4000 , Rate = 20Rs/hr</h4>
-        <br><input class="favorite styled" type="button" id="Form1" value="View Availability" style="display: inline;"/>
+        <br><button class="favorite styled"  id="Form1" value="View Availability" style="display: inline;" >View Availability</button>
         <span id="Availability1"></span>
-        <input class="favorite styled prebook" type="button" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
+        <!-- <form action="" class="pay-form"> -->
+        <input class="favorite styled prebook" type="button" id="Form5"  value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
+        <!-- </form> -->
         <span id="Availability5"></span>
     </div>
 </div>
@@ -264,7 +270,7 @@
 
         <input class="favorite styled" type="button" id="Form2" value="View Availability" style="display: inline;"/>
         <span id="Availability2"></span>
-        <input class="favorite styled prebook" type="button" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
+        <input class="favorite styled prebook" type="button" id="Form6" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
         <span id="Availability6"></span>
     </div>
 </div>
@@ -278,7 +284,7 @@
         
         <input class="favorite styled" type="button" id="Form3" value="View Availability" style="display: inline;"/>
         <span id="Availability3"></span>
-        <input class="favorite styled prebook" type="button" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
+        <input class="favorite styled prebook" type="button" id="Form7" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
         <span id="Availability7"></span>
     </div>
 </div>
@@ -291,7 +297,7 @@
         <br>
         <input class="favorite styled" type="button" id="Form4" value="View Availability" style="display: inline;"/>
         <span id="Availability4"></span>
-        <input class="favorite styled prebook" type="button" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
+        <input class="favorite styled prebook" type="button" id="Form8" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
         <span id="Availability8"></span>
     </div>
 </div>
@@ -351,6 +357,63 @@
         </div>
       </footer>
       <script src="afterlogin.js"></script>
+      <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+ <script>
+
+    
+$(document).ready(function(){
+	$('.pay-form2').submit(function(e){
+		e.preventDefault();
+
+		var formData = $(this).serialize();
+
+		$.ajax({
+			url:"/createOrder",
+			type:"POST",
+			data: formData,
+			success:function(res){
+				if(res.success){
+					var options = {
+						"key": ""+"rzp_test_a1bgTfOzP7ZaC4"+"",
+						"amount": ""+res.amount+"",
+						"currency": "INR",
+						//"name": ""+res.product_name+"",
+						"description": ""+res.description+"",
+						//"image": "https://dummyimage.com/600x400/000/fff",
+						"order_id": ""+res.order_id+"",
+						"handler": function (response){
+							alert("Payment Succeeded");
+							// window.open("/","_self")
+						},
+						"prefill": {
+							"contact":""+res.contact+"",
+							"name": ""+res.name+"",
+							"email": ""+res.email+""
+						},
+						"notes" : {
+							"description":""+res.description+""
+						},
+						"theme": {
+							"color": "#2300a3"
+						}
+					};
+					var razorpayObject = new window.Razorpay(options);
+					razorpayObject.on('payment.failed', function (response){
+							alert("Payment Failed");
+					});
+					razorpayObject.open();
+					e.preventDefault();
+				}
+				else{
+					alert(res.msg);
+				}
+			}
+		})
+
+	});
+});
+
+</script>
 </body>
 
 </html>

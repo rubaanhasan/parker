@@ -1,17 +1,41 @@
+const Razorpay = require("razorpay");
 const fs = require("fs");
 const {
   PreorderNumberplate,
   LocalNumberplate,
   ExitCollection,
 } = require("../models/mongodb");
+const { countRecords } = require("../models/mongo");
+const express = require("express");
+const app2 = require("express")();
+var http = require("http").Server(app2);
+var engines = require("consolidate");
+const path = require("path");
+var HAHAH=0
+// app.set('views', __dirname + '/views');
+// app.engine('html', engines.mustache);
+app2.set("view engine", "ejs");
+app2.set("views", path.join(__dirname, "../../frontend/views"));
+app2.get("/", (req, res) => {
+  res.render("exitpayment");
+});
 
+function submitform(){
+  document.getElementById("submitButtonexit").click();
+}
 // Global variables
+const PORT = 3000;
 let localNumberplatesCount = 0;
 let onlylocalNumberplatesCount = 0; // Declare as a global variable
 const PARKING_CAPACITY = 100;
+const razorpayInstance = new Razorpay({
+  key_id: "rzp_test_a1bgTfOzP7ZaC4",
+  key_secret: "QDTr46VyzzsI5D0vCXztaJce",
+});
 
 // Flag to prevent multiple executions when the file changes
 let isProcessing = false;
+// const app = express();
 
 // Function to convert "hh:mm:ss" time string to seconds
 function timeStringToSeconds(timeStr) {
@@ -42,6 +66,29 @@ async function onlycountLocalNumberplates() {
 }
 
 // Function to process file data
+app2.get("/triggerBackendOperation", async (req, res) => {
+  try {
+    // Call the backend controller function
+    await performBackendOperation();
+    res.json({ success: true });
+  } catch (error) {
+    console.error("Error:", error);
+    res.status(500).json({
+      success: false,
+      error: "An error occurred during the backend operation.",
+    });
+  }
+});
+function performBackendOperation() {
+  return new Promise((resolve, reject) => {
+    {
+      setTimeout(() => {
+        console.log("Backend operation completed.");
+        resolve();
+      }, 2);
+    }
+  });
+}
 async function processFileData(data) {
   // Set the flag to indicate that processing is in progress
   isProcessing = true;
@@ -58,6 +105,7 @@ async function processFileData(data) {
     console.log(intimeStr);
     console.log(intimeInSeconds);
 
+   
     try {
       // Check if the numberplate exists in the 'preorder_numberplate' collection
       const preorderResult = await PreorderNumberplate.findOne({
@@ -108,7 +156,7 @@ async function processFileData(data) {
 
       if (preorderResult) {
         // Numberplate found in prebook collection, perform some action
-        console.log("Numberplate found in prebook collection. Do something.");
+        console.log("Open Gate.");
       } else {
         // Numberplate not in prebook collection, proceed with exit logic
         const localPlate = await LocalNumberplate.findOne({
@@ -123,6 +171,12 @@ async function processFileData(data) {
           const outtimeInSeconds = timeStringToSeconds(outtimeStr);
           const durationInSeconds = outtimeInSeconds - intimeInSeconds;
           const payableAmount = durationInSeconds * 2;
+          HAHAH=payableAmount;
+          //exitpayment here
+          
+          // submitform();
+           
+
           // Create an entry in the "exit collection"
           const exitData = new ExitCollection({
             numberplate,
@@ -149,6 +203,40 @@ async function processFileData(data) {
   isProcessing = false;
 }
 
+app2.post("/createexitOrder", async (req, res) => {
+  console.log(HAHAH);
+  try {
+    const amount = HAHAH * 100;
+    const options = {
+      amount: amount,
+      currency: "INR",
+      receipt: "razorUser@gmail.com",
+    };
+
+    razorpayInstance.orders.create(options, (err, order) => {
+      if (!err) {
+        res.status(200).send({
+          success: true,
+          msg: "Order Created",
+          order_id: order.id,
+          amount: amount,
+
+          key_id: "rzp_test_a1bgTfOzP7ZaC4",
+          //product_name:req.body.name,
+          // description:req.body.description,
+          contact: "8567345632",
+          name: "Rubaan Hasan",
+          email: "rubaanhasan123@gmail.com",
+        });
+      } else {
+        res.status(400).send({ success: false, msg: "Something went wrong!" });
+      }
+    });
+  } catch (error) {
+    console.log(error.message);
+  }
+});
+
 function watchFile() {
   fs.watch("../ai_files/test.txt", (event, filename) => {
     if (event === "change" && filename === "test.txt" && !isProcessing) {
@@ -167,8 +255,11 @@ function watchFile() {
   });
 }
 
-
 // Initial run to start watching the file
 watchFile();
 
 module.exports = { localNumberplatesCount };
+
+app2.listen(PORT, () => {
+  console.log(`Server running at http://localhost:${PORT}/`);
+});
