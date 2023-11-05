@@ -188,7 +188,7 @@ app.post("/login", async (req, res) => {
         // res.redirect("http://localhost:5500/afterlogin.html"); //redirecting home
       } else {
         // res.redirect("http://localhost:5500/login.html");
-        res.status(200).json({ success: false, msg: "wrong password" });
+        res.status(200).json({ success: false, msg: "Wrong Password" });
       }
     } else {
       // res.redirect("http://localhost:5500/login.html"); //no email found that is new user have to redirect on signup
