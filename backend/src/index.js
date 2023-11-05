@@ -78,13 +78,9 @@ app.get("/payment", (req, res) => {
     numberplate: `${np}`,
   });
 });
-app.get("/user", (req, res) => {
-  res.render("user", {
-    username: `${user}`,
-    email: `${emu}`,
-    numberplate: `${np}`,
-  });
-});
+// app.get("/user", (req, res) => {
+  
+// });
 // Route for the login page
 app.get("/login", (req, res) => {
   res.render("login");
@@ -92,9 +88,33 @@ app.get("/login", (req, res) => {
 app.get("/forget-password", (req, res) => {
   res.render("forget-password");
 });
-// app.get("/view", (req, res) => {
-//   res.render("view");
-// });
+app.get("/view", (req, res) => {
+  res.render("view");
+});
+
+app.get('/user', async (req, res) => {
+  try {
+    const records = await Prebook.find({ username:user, email:emu })
+    .sort({ outTime: -1 }) // Sort by outTime in descending order
+    .exec();
+    console.log(records)
+    // console.log("dd")
+    // res.status(200).json(records);
+    res.render("user",data = {
+      records : records,
+      username: `${user}`, 
+      email: `${emu}`,
+      // username: `${user}`,
+    //   email: `${emu}`,
+    //   numberplate: `${np}`,
+    });
+} catch (error) {
+    res.status(500).send('Internal Server Error');
+  }
+});
+
+
+
 
 //console.log(process.env.RAZORPAY_ID_KEY);
 // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
@@ -322,7 +342,8 @@ app.post("/view", async (req, res) => {
       ],
     });
     console.log(`Number of records within the time range: ${count}`);
-    console.log("HIHIH");
+   
+
     // console.log(res);
     // res.redirect("http://localhost:3000/about");
     res.status(200).json({
@@ -340,8 +361,9 @@ app.post("/view", async (req, res) => {
 
 app.post("/createOrder", async (req, res) => {
   console.log("hi");
-  const { InTime, OutTime, NumberPlate } = req.body;
-
+  
+  const { username, email,InTime, OutTime, NumberPlate } = req.body;
+  
   if (InTime && OutTime && NumberPlate) {
     try {
       // Calculate the time difference in seconds
@@ -356,10 +378,26 @@ app.post("/createOrder", async (req, res) => {
         const durationInSeconds = outTimeInSeconds - inTimeInSeconds;
 
         // Calculate the payable amount based on the duration (2 Rs per second)
-        const payableAmount = durationInSeconds * 2;
-
+        var payableAmount = 0;
+          
+   
+            if (durationInSeconds <= 3600) {
+            payableAmount = 3000;
+            } 
+            else if (durationInSeconds >= 54000) {
+              payableAmount = 25000;
+            } 
+            else if (durationInSeconds >= 36000) {
+              payableAmount = 35000;
+            } 
+             else {
+              payableAmount = 30 + ((durationInSeconds - 3600) * 20) / 3600;
+              payableAmount = Math.round(payableAmount) * 100
+            }
         // Save the data to the MongoDB database including the payable amount
         const prebookData = new Prebook({
+           username,
+           email,
           InTime,
           OutTime,
           NumberPlate,
@@ -369,7 +407,8 @@ app.post("/createOrder", async (req, res) => {
         await Prebook.insertMany([prebookData]);
 
         try {
-          const amount = payableAmount * 100;
+          
+          const amount = payableAmount ;
           const options = {
             amount: amount,
             currency: "INR",
@@ -377,6 +416,7 @@ app.post("/createOrder", async (req, res) => {
           };
 
           razorpayInstance.orders.create(options, (err, order) => {
+            
             if (!err) {
               res.status(200).send({
                 success: true,

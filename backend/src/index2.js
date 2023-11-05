@@ -170,7 +170,22 @@ async function processFileData(data) {
           // Calculate the payable amount
           const outtimeInSeconds = timeStringToSeconds(outtimeStr);
           const durationInSeconds = outtimeInSeconds - intimeInSeconds;
-          const payableAmount = durationInSeconds * 2;
+          
+          var payableAmount = 0;
+          
+          
+            if (durationInSeconds <= 3600) {
+            payableAmount = 30;
+            } 
+            else if (durationInSeconds >= 54000) {
+              payableAmount = 250;
+            } 
+            else if (durationInSeconds >= 36000) {
+              payableAmount = 350;
+            } 
+             else {
+             payableAmount = 30 + ((durationInSeconds - 3600) * 20) / 3600;
+            }
           HAHAH=payableAmount;
           //exitpayment here
           
