@@ -29,11 +29,24 @@ document.getElementById("Form1").addEventListener("click", function () {
   const inTime = document.getElementById("InTime").value;
   const outTime = document.getElementById("OutTime").value;
   const numberPlate = document.getElementById("NumberPlate").value;
-
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  if(inTime==="" || outTime==="" || numberPlate==="")
+  {
+    let elem = document.getElementById("Availability1");
+    let prevH1 = elem.innerHTML;
+    elem.innerText="Invalid Input";
+      setTimeout(function () {
+        elem.innerHTML = prevH1;
+      }, 2000);
+    return;
+  }
   const obj = {
+    username,
+    email,
     inTime,
     outTime,
-    numberPlate,
+    numberPlate,    
   };
   console.log(obj);
 
@@ -53,11 +66,24 @@ document.getElementById("Form2").addEventListener("click", function () {
   const inTime = document.getElementById("InTime").value;
   const outTime = document.getElementById("OutTime").value;
   const numberPlate = document.getElementById("NumberPlate").value;
-
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  if(inTime==="" || outTime==="" || numberPlate==="")
+  {
+    let elem = document.getElementById("Availability2");
+    let prevH1 = elem.innerHTML;
+    elem.innerText="Invalid Input";
+      setTimeout(function () {
+        elem.innerHTML = prevH1;
+      }, 2000);
+    return;
+  }
   const obj = {
+    username,
+    email,
     inTime,
     outTime,
-    numberPlate,
+    numberPlate,    
   };
   console.log(obj);
 
@@ -77,11 +103,24 @@ document.getElementById("Form3").addEventListener("click", function () {
   const inTime = document.getElementById("InTime").value;
   const outTime = document.getElementById("OutTime").value;
   const numberPlate = document.getElementById("NumberPlate").value;
-
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  if(inTime==="" || outTime==="" || numberPlate==="")
+  {
+    let elem = document.getElementById("Availability2");
+    let prevH1 = elem.innerHTML;
+    elem.innerText="Invalid Input";
+      setTimeout(function () {
+        elem.innerHTML = prevH1;
+      }, 2000);
+    return;
+  }
   const obj = {
+    username,
+    email,
     inTime,
     outTime,
-    numberPlate,
+    numberPlate,    
   };
   console.log(obj);
 
@@ -101,11 +140,24 @@ document.getElementById("Form4").addEventListener("click", function () {
   const inTime = document.getElementById("InTime").value;
   const outTime = document.getElementById("OutTime").value;
   const numberPlate = document.getElementById("NumberPlate").value;
-
+  const username = document.getElementById("username").value;
+  const email = document.getElementById("email").value;
+  if(inTime==="" || outTime==="" || numberPlate==="")
+  {
+    let elem = document.getElementById("Availability2");
+    let prevH1 = elem.innerHTML;
+    elem.innerText="Invalid Input";
+      setTimeout(function () {
+        elem.innerHTML = prevH1;
+      }, 2000);
+    return;
+  }
   const obj = {
+    username,
+    email,
     inTime,
     outTime,
-    numberPlate,
+    numberPlate,    
   };
   console.log(obj);
 

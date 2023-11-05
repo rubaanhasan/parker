@@ -37,7 +37,7 @@
           <a class="nav-link text-white fs-5 active" href="/ALabout">About Us</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link text-white fs-5 active" href="/user"><%=username%></a>
+            <a class="nav-link text-white fs-5 active" href="/user"><%= (data.username) %></a>
         </li>
       </ul>
     </div>
@@ -50,13 +50,36 @@
         <div class="makeGrid">
             <div style="display: flex;justify-content: center;align-items: center;" class="text-white" id="data-output">            
           <div>
-              <h3>Username : <%= username %> </h3>
-              <h3>Email Id : <%= email %></h3>
-              <h3>Number Plate : <%= numberplate %></h3>
+              <h3>Username :  <%= (data.username) %></h3>
+              <h3>Email Id : <%= (data.email) %></h3>
           </div>
         </div>
             <div style="display: flex;justify-content: center;align-items: center;"><i class="fa-solid fa-user text-white text-center" style="font-size: 10em;"></i></div>
         </div>
+        <table class="text-center text-white">
+          <thead>
+            <tr>
+               <th>Username</th>
+               <!-- <th>Email</th> -->
+               <th>Number Plate</th>
+               <th>In Time</th>
+               <th>Out Time</th>
+               <th>Payable Amount</th>
+            </tr>
+         </thead>
+         <tbody id="data-output">
+          <% for( let i=0; i < data.records.length; i++ ) { %>
+            <tr>
+              <td><%= (data.username) %></td>
+              <!-- <td><%= (data.email) %></td> -->
+              <td><%= (data.records[i].NumberPlate) %></td>
+              <td><%= (data.records[i].InTime) %></td>
+              <td><%= (data.records[i].OutTime) %></td>
+              <td><%= (data.records[i].PayableAmount) %></td>
+            </tr>
+            <% } %>
+         </tbody>
+        </table>
   </div>
     <footer>
         <div class="footer-top">
