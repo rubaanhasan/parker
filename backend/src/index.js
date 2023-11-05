@@ -104,6 +104,7 @@ app.get('/user', async (req, res) => {
       records : records,
       username: `${user}`, 
       email: `${emu}`,
+      Date: `${Date}`,
       // username: `${user}`,
     //   email: `${emu}`,
     //   numberplate: `${np}`,
@@ -362,7 +363,7 @@ app.post("/view", async (req, res) => {
 app.post("/createOrder", async (req, res) => {
   console.log("hi");
   
-  const { username, email,InTime, OutTime, NumberPlate } = req.body;
+  const { username, email,Date, InTime, OutTime, NumberPlate } = req.body;
   
   if (InTime && OutTime && NumberPlate) {
     try {
@@ -398,6 +399,7 @@ app.post("/createOrder", async (req, res) => {
         const prebookData = new Prebook({
            username,
            email,
+           Date,
           InTime,
           OutTime,
           NumberPlate,

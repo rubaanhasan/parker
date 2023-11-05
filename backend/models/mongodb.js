@@ -54,11 +54,16 @@ const exitSchema = new mongoose.Schema({
 });
 
 const prebookSchema = new mongoose.Schema({
+
   username: {
     type: String,
     required: true,
   },
   email: {
+    type: String,
+    required: true,
+  },
+  Date: {
     type: String,
     required: true,
   },

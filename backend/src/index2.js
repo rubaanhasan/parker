@@ -174,18 +174,18 @@ async function processFileData(data) {
           var payableAmount = 0;
           
           
-            if (durationInSeconds <= 3600) {
-            payableAmount = 30;
+          if (durationInSeconds <= 3600) {
+            payableAmount = 3000;
             } 
             else if (durationInSeconds >= 54000) {
-              payableAmount = 250;
+              payableAmount = 25000;
             } 
             else if (durationInSeconds >= 36000) {
-              payableAmount = 350;
+              payableAmount = 35000;
             } 
              else {
-             payableAmount = 30 + ((durationInSeconds - 3600) * 20) / 3600;
-            }
+              payableAmount = 30 + ((durationInSeconds - 3600) * 20) / 3600;
+              payableAmount = Math.round(payableAmount) * 100;}
           HAHAH=payableAmount;
           //exitpayment here
           
