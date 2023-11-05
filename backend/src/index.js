@@ -89,6 +89,9 @@ app.get("/user", (req, res) => {
 app.get("/login", (req, res) => {
   res.render("login");
 });
+app.get("/forget-password", (req, res) => {
+  res.render("forget-password");
+});
 // app.get("/view", (req, res) => {
 //   res.render("view");
 // });
@@ -144,7 +147,7 @@ const sendResetPasswordMail = async (name, email, token) => {
       }
     });
   } catch (error) {
-    res.status(400).send({ success: false, msg: error.message });
+    // res.status(400).send({ success: false, msg: error.message });
   }
 };
 
@@ -259,9 +262,9 @@ app.post("/forget-password", async (req, res) => {
       );
       sendResetPasswordMail(userData.name, userData.email, randomString);
 
-      res.status(200).send({ success: true, msg: "Please check your email" });
+      res.status(200).send({ success: true, msg: "Reset link sent to your email" });
     } else {
-      res.status(200).send({ success: true, msg: "This email does not exist" });
+      res.status(200).send({ success: false, msg: "This email does not exist" });
     }
   } catch (error) {
     res.status(400).send({ success: false, msg: error.message });
