@@ -1,3 +1,80 @@
+@media (min-width:680px) and (max-width:1350px){
+  body{
+    overflow-x: hidden;
+  }  
+  h1{
+    position: relative;
+    top:20px;
+  }
+  .makeGrid {
+    display: grid;
+    color: white;
+    height: 180vh;
+    grid-template-columns: 80vw;
+    margin-left: 8vw;
+    grid-template-rows: 35vh 30vh 10vh 30vh 30vh;
+  }
+  .giveBackground {
+    background-image: url(Background1.jpg);
+    background-repeat: no-repeat;
+    background-size: 101vw 150vh;
+    height: 150vh;
+  }
+  .makeFlex {
+    margin: 0 0vw;
+    padding: 0;
+    overflow: hidden;
+  }
+  .makeGrid img{
+    height: 25vh;
+  }
+  #GridItem2{
+    height: 30vh;
+    justify-self: center;
+  }
+  #GridItem4{
+    justify-self: center;
+    align-self: center;
+  }
+  #GridItem1,#GridItem3,#GridItem5{
+    justify-self: center;
+    align-self: center;
+  }
+}
+@media (max-width:680px){
+  body{
+    overflow-x: hidden;
+  }  
+  .makeGrid {
+    margin-top: -3px;
+    display: grid;
+    color: white;
+    height: 200vh;
+    grid-template-columns: 80vw;
+    grid-template-rows: 45vh 30vh 10vh 30vh 30vh;
+    justify-content: center;
+    align-items: center;
+  }
+  .giveBackground {
+    background-image: url(Background1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 200vh;
+    height: 170vh;
+  }
+  .makeFlex {
+    margin: 0 0vw;
+    padding: 0;
+    overflow: hidden;
+  }
+  .makeGrid img{
+    height: 25vh;
+  }
+  #GridItem2{
+    height: 30vh;
+  }
+
+}
+@media (min-width:1350px) {
 body {
   overflow-x: hidden;
 }
@@ -18,7 +95,7 @@ body {
   color: white;
   height: 70vh;
   grid-template-columns: 2fr 1fr 1fr 2fr;
-  grid-template-rows: 35% 15% 40% 10%;
+  grid-template-rows: 35% 15% 40% 10% 10%;
 }
 .GridItem {
   color: white;
@@ -39,6 +116,7 @@ body {
 #GridItem5 {
   grid-column: 2/5;
 }
-#GridItem6 {
+#GridItem6{
   grid-column: 1/5;
+}
 }

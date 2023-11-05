@@ -1,20 +1,141 @@
+@media screen and (min-width:992px){
 .nav-item{
-    margin: 0;
-    padding: 0;
-    display: inline-block;
-    width: 150px;
-    text-align: center;
-    color: white;
-}
-#NavLogo{
-    height: 15vh;
-    width: auto;
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      width: 200px;
+      text-align: center;
+      color: white;
   }
-  #hasNavBar {
-    font-family: "Poppins", sans-serif;
-    height: 15vh;
-    background-image: url(Images/Background1.jpg);
-    width: 99vw;
-    margin: 0;
-    padding: 0;
+  #NavLogo{
+      height: 15vh;
+      width: auto;
+    }
+    #hasNavBar {
+      font-family: "Poppins", sans-serif;
+      height: 15vh;
+      background-image: url(Images/Background1.jpg);
+      width: 99vw;
+      margin: 0;
+      padding: 0;
+    }
   }
+  @media screen and (min-width:780px) and (max-width:992px){
+    nav{
+      background-color: black;
+      position: relative;
+      z-index: 10;
+      height: 10vh;
+    }
+    .nav-item{
+      position: relative; 
+      z-index: 100;
+          margin: 0;
+          padding: 0;
+          display: inline-block;
+          width: 150px;
+          background-color: black;
+          text-align: center;
+          color: white;
+          z-index: 1000;
+          bottom: 85px;
+          right: 50px;
+      }
+      #NavLogo{
+          height: 10vh;
+          width: auto;
+          position: relative;
+          z-index: 1000;
+          bottom: 32px;
+          left: 50px;
+        }
+        #hasNavBar {
+          font-family: "Poppins", sans-serif;
+          height: 15vh;
+          background-color: black;
+          width: 99vw;
+          margin: 0;
+          padding: 0;
+        }
+      }
+      @media screen and (min-width:560px) and (max-width:780px) {
+        nav{
+          background-color: black;
+          position: relative;
+          z-index: 10;
+          height: 10vh;
+        }
+        .nav-item{
+          position: relative; 
+          z-index: 100;
+              margin: 0;
+              padding: 0;
+              display: inline-block;
+              width: 150px;
+              background-color: black;
+              text-align: center;
+              color: white;
+              z-index: 1000;
+              bottom: 85px;
+              right: 50px;
+          }
+          #NavLogo{
+              height: 10vh;
+              width: auto;
+              position: relative;
+              z-index: 1000;
+              bottom: 32px;
+              left: 50px;
+              visibility: hidden;
+            }
+            #hasNavBar {
+              font-family: "Poppins", sans-serif;
+              height: 15vh;
+              background-color: black;
+              width: 99vw;
+              margin: 0;
+              padding: 0;
+            }
+      }
+      @media screen and (max-width:560px){
+        nav{
+          background-color: black;
+          position: relative;
+          z-index: 10;
+          height: 10vh;
+        }
+        .nav-item{
+          position: relative; 
+          z-index: 100;
+              margin: 0;
+              padding: 0;
+              display: inline-block;
+              width: 150px;
+              background-color: black;
+              text-align: center;
+              color: white;
+              z-index: 1000;
+              bottom: 85px;
+              right: 50px;
+          }
+          #NavLogo{
+              height: 10vh;
+              width: auto;
+              position: relative;
+              z-index: 1000;
+              bottom: 32px;
+              left: 50px;
+              visibility: hidden;
+            }
+            .navbar-toggler{
+              display: none;
+            }
+            #hasNavBar {
+              font-family: "Poppins", sans-serif;
+              height: 15vh;
+              background-color: black;
+              width: 99vw;
+              margin: 0;
+              padding: 0;
+            }
+      }

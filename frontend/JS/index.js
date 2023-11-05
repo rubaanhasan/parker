@@ -52,3 +52,44 @@ document.getElementsByClassName("prebook")[3].addEventListener('click',function(
         elem.innerHTML=prevHTML;
     },2000)
 })
+
+let elem4 = document.getElementById("Availability1");
+const prevHTML2 = elem4.innerHTML;
+
+  document
+    .getElementsByClassName("viewAv")[0]
+    .addEventListener("click", function (e) {
+      let elem = document.getElementById("Availability1");
+      elem.innerHTML = "<b>Please Login first!</b>";
+      setTimeout(function () {
+        elem.innerHTML = prevHTML2;
+      }, 2000);
+    });
+    document
+      .getElementsByClassName("viewAv")[1]
+      .addEventListener("click", function (e) {
+        let elem = document.getElementById("Availability2");
+        elem.innerHTML = "<b>Please Login first!</b>";
+        setTimeout(function () {
+          elem.innerHTML = prevHTML2;
+        }, 2000);
+      });
+      document
+        .getElementsByClassName("viewAv")[2]
+        .addEventListener("click", function (e) {
+          let elem = document.getElementById("Availability3");
+          elem.innerHTML = "<b>Please Login first!</b>";
+          setTimeout(function () {
+            elem.innerHTML = prevHTML2;
+          }, 2000);
+        });
+
+        document
+          .getElementsByClassName("viewAv")[3]
+          .addEventListener("click", function (e) {
+            let elem = document.getElementById("Availability4");
+            elem.innerHTML = "<b>Please Login first!</b>";
+            setTimeout(function () {
+              elem.innerHTML = prevHTML2;
+            }, 2000);
+          });

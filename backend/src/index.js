@@ -30,6 +30,9 @@ const publicPath = path.join(__dirname, "../../frontend/public/CSS");
 const imagesPath = path.join(__dirname, "../../frontend/public/Images");
 const faviconPath = path.join(__dirname, "../../frontend/public/favicon_io");
 const jsPath = path.join(__dirname, "../../frontend/JS");
+var user;
+var np;
+var emu;
 
 const port = 3000;
 const app = express();
@@ -55,21 +58,40 @@ app.get("/about", (req, res) => {
   res.render("about");
 });
 app.get("/afterlogin", (req, res) => {
-  res.render("afterlogin");
+  res.render("afterlogin", {
+    username: `${user}`,
+    email: `${emu}`,
+    numberplate: `${np}`,
+  });
 });
 app.get("/ALabout", (req, res) => {
-  res.render("ALabout");
+  res.render("ALabout", {
+    username: `${user}`,
+    email: `${emu}`,
+    numberplate: `${np}`,
+  });
 });
 app.get("/payment", (req, res) => {
-  res.render("payment");
+  res.render("payment", {
+    username: `${user}`,
+    email: `${emu}`,
+    numberplate: `${np}`,
+  });
 });
 app.get("/user", (req, res) => {
-  res.render("user");
+  res.render("user", {
+    username: `${user}`,
+    email: `${emu}`,
+    numberplate: `${np}`,
+  });
 });
 // Route for the login page
 app.get("/login", (req, res) => {
   res.render("login");
 });
+// app.get("/view", (req, res) => {
+//   res.render("view");
+// });
 
 //console.log(process.env.RAZORPAY_ID_KEY);
 // app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
@@ -138,10 +160,12 @@ const securePassword = async (password) => {
 //check db
 app.post("/login", async (req, res) => {
   try {
+    console.log(req.body);
     const email = req.body.email;
     const password = req.body.password;
-    const username = req.body.username;
     const check = await LogInCollection2.findOne({ email: email });
+    const username = check.username;
+    const numberplate = check.numberplate;
 
     if (check) {
       const passwordMatch = await bcryptjs.compare(password, check.password);
@@ -150,7 +174,14 @@ app.post("/login", async (req, res) => {
         // res.status(201).render("afterlogin", {
         //   lodu: `${req.body.username}`,
         // });
-        res.render("afterlogin", { username });
+        user = username;
+        np = numberplate;
+        emu = email;
+        console.log(np);
+        // setTimeout(() => {
+        //   res.redirect("/afterlogin");
+        // }, 1000);
+        res.status(200).json({ success: true, msg: "gg" });
         // res.redirect("http://localhost:5500/afterlogin.html"); //redirecting home
       } else {
         // res.redirect("http://localhost:5500/login.html");
@@ -164,10 +195,10 @@ app.post("/login", async (req, res) => {
     }
   } catch (e) {
     // console.error("Error during signup:", err);
-    // res.status(500).json({
-    //   success: false,
-    //   msg: "Error occurred during registration: " + err.message,
-    // });
+    res.status(500).json({
+      success: false,
+      msg: "Login details are incorrect",
+    });
   }
 });
 
@@ -262,8 +293,8 @@ app.post("/view", async (req, res) => {
     // useUnifiedTopology: true,
   });
 
-  const startTimeInSeconds = req.body.obj.intime; // Use req.body.obj.intime as startTimeInSeconds
-  const endTimeInSeconds = req.body.obj.endTime; // Use req.body.obj.endTime as endTimeInSeconds
+  const startTimeInSeconds = req.body.intime; // Use req.body.obj.intime as startTimeInSeconds
+  const endTimeInSeconds = req.body.endTime; // Use req.body.obj.endTime as endTimeInSeconds
 
   const dbName = "test"; // Include dbName directly
   const collectionName = "prebook"; // Include collectionName directly
@@ -288,11 +319,14 @@ app.post("/view", async (req, res) => {
       ],
     });
     console.log(`Number of records within the time range: ${count}`);
-    res.redirect("http://localhost:3000/about");
-    // res.status(200).json({
-    //   success: true,
-    //   msg: `Number of records within the time range: ${count}`,
-    // });
+    console.log("HIHIH");
+    // console.log(res);
+    // res.redirect("http://localhost:3000/about");
+    res.status(200).json({
+      success: true,
+      msg: `Number of records within the time range: ${count}`,
+    });
+    console.log("JIJIJI");
   } catch (err) {
     console.error("Error: ", err);
     res.status(500).json({ error: "An error occurred during the operation." });

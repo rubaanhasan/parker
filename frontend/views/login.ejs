@@ -10,75 +10,142 @@
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 <body>
-	
-  <a href="/index"><img class="form-inline" src="Parker_Top.png" alt="Logo" id="NavLogo" style="position: absolute;height: 15vh;margin-top: 8px;"></a>
-  <div class="body">
-              
-    <div class="main">  	
-      <input type="checkbox" id="chk" aria-hidden="true">
-      
-			<div  style="	position: relative;width:100%;height: 100%;">
-				<form action="http://localhost:3000/signup" method="post">
+	<a href="/index"><img class="form-inline" src="Parker_Top.png" alt="Logo" id="NavLogo"
+			style="position: absolute;height: 15vh;margin-top: 8px;"></a>
+	<div class="body">
+
+		<div class="main">
+			<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div style="	position: relative;width:100%;height: 100%;">
+				<form id="signup-form" action="http://localhost:3000/signup" method="post">
 					<label for="chk" aria-hidden="true">Sign up</label>
 					<input type="email" name="email" placeholder="Email" required="">
 					<input type="text" name="username" placeholder="User name" required="">
 					<input type="text" name="numberplate" placeholder="Number Plate" required="">
 					<input type="password" name="password" placeholder="Password" required="">
-					<button class="button">Sign up</button>
+					<button type="submit" class="button">Sign up</button>
 				</form>
 			</div>
+			<script>
+				document.getElementById('signup-form').addEventListener('submit', function (event) {
+					event.preventDefault(); // Prevent the default form submission
 
+					// Fetch API request to the backend
+					fetch('http://localhost:3000/signup', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({
+							email: event.target.email.value,
+							username: event.target.username.value,
+							numberplate: event.target.numberplate.value,
+							password: event.target.password.value,
+						}),
+					})
+						.then((response) => response.json())
+						.then((data) => {
+							if (data.success === true) {
+								alert("Signup was successful! Please login to continue. ");
+								// Redirect to another page after successful login
+								window.location.href = '/login';
+							} else {
+								alert("Login failed: " + data.msg);
+							}
+						})
+						.catch((error) => {
+							console.error("An error occurred:", error);
+						});
+				});
+			</script>
 			<div class="login">
-				<form action="http://localhost:3000/login" method="post"> 
+				<form id="login-form" action="http://localhost:3000/login" method="post">
 					<label for="chk" aria-hidden="true">Login</label>
 					<input type="email" name="email" placeholder="Email" required="">
 					<input type="password" name="password" placeholder="Password" required="">
-					<button class="button">Login</button>
+					<button type="submit" class="button">Login</button>
 				</form>
 			</div>
+			<script>
+				document.getElementById('login-form').addEventListener('submit', function (event) {
+					event.preventDefault(); // Prevent the default form submission
+
+					// Fetch API request to the backend
+					fetch('http://localhost:3000/login', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json',
+						},
+						body: JSON.stringify({
+							email: event.target.email.value,
+							password: event.target.password.value,
+						}),
+					})
+						.then((response) => response.json())
+						.then((data) => {
+							if (data.success === true) {
+								//alert("Signup was successful! Please login to continue. ");
+								// Redirect to another page after successful login
+								window.location.href = '/afterlogin';
+							} else {
+								alert("Login failed : " + data.msg);
+							}
+						})
+						.catch((error) => {
+							console.error("An error occurred:", error);
+						});
+				});
+			</script>
+		</div>
 	</div>
-</div>
-<footer>
-	<div class="footer-top">
-	  <div class="container">
-		<div class="row">
-		  <div class="col-md-3 footer-about wow fadeInUp">
-			<img class="logo-footer" src="Parker_Top.png" alt="logo-footer" data-at2x="assets/img/logo.png">
-			<p>
-			  We are a young company always looking for new and creative ideas to help you in your everyday work.
-			</p>
-				</div>
-		  <div class="col-md-4 offset-md-1 footer-contact wow fadeInDown">
-			<h3>Contact Us for any Query</h3>
-				<p><a href="https://maps.app.goo.gl/dvGjytmnwkACUtrA8" style="text-decoration: none;"><i class="fas fa-map-marker-alt" style="margin-right: 9px;"></i>Address: IIT Roorkee</p></a>
-				<p><a href="tel:+919067313978" style="text-decoration: none;"><i class="fas fa-phone"></i> Phone: +91-9067313978</a></p>
-				<p><a href="mailto:darshan_rb@cs.iitr.ac.in" style="text-decoration: none;"><i class="fas fa-envelope"></i> Email: darshan_rb@cs.iitr.ac.in</a></p>
-				</div>
-				<div class="col-md-4 footer-links wow fadeInUp">
-				  <div class="row">
-					<div class="col">
-					  <h3>Links</h3>
+	<footer>
+		<div class="footer-top">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-3 footer-about wow fadeInUp">
+						<img class="logo-footer" src="Parker_Top.png" alt="logo-footer" data-at2x="assets/img/logo.png">
+						<p>
+							We are a young company always looking for new and creative ideas to help you in your
+							everyday work.
+						</p>
 					</div>
-				  </div>
-				  <div class="row">
-					<div class="col-md-6">
-					  <p><a class="text-decoration-none" href="/index">Home</a></p>
-					  <p><a class="text-decoration-none" href="/about">About Us</a></p>
-					  <p><a class="text-decoration-none scroll-link" href="#NavLogo">Login</a></p>
-					</div>  
-				  </div>
+					<div class="col-md-4 offset-md-1 footer-contact wow fadeInDown">
+						<h3>Contact Us for any Query</h3>
+						<p><a href="https://maps.app.goo.gl/dvGjytmnwkACUtrA8" style="text-decoration: none;"><i
+									class="fas fa-map-marker-alt" style="margin-right: 9px;"></i>Address: IIT Roorkee
+						</p></a>
+						<p><a href="tel:+919067313978" style="text-decoration: none;"><i class="fas fa-phone"></i>
+								Phone: +91-9067313978</a></p>
+						<p><a href="mailto:darshan_rb@cs.iitr.ac.in" style="text-decoration: none;"><i
+									class="fas fa-envelope"></i> Email: darshan_rb@cs.iitr.ac.in</a></p>
+					</div>
+					<div class="col-md-4 footer-links wow fadeInUp">
+						<div class="row">
+							<div class="col">
+								<h3>Links</h3>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-6">
+								<p><a class="text-decoration-none" href="/index">Home</a></p>
+								<p><a class="text-decoration-none" href="/about">About Us</a></p>
+								<p><a class="text-decoration-none scroll-link" href="#NavLogo">Login</a></p>
+							</div>
+						</div>
+					</div>
 				</div>
-		  </div>
-	  </div>
-	</div>
-	<div class="footer-bottom">
-	  <div class="container">
-			 <div class="text-center">
-				  &copy;Copyright-2023</div>
-	  </div>
-	</div>
-  </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
-</script>
+			</div>
+		</div>
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="text-center">
+					&copy;Copyright-2023</div>
+			</div>
+		</div>
+	</footer>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+		</script>
 </body>
 </html>
