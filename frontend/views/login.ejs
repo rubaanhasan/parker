@@ -56,7 +56,7 @@
 								// Redirect to another page after successful login
 								window.location.href = '/login';
 							} else {
-								alert("Login failed: " + data.msg);
+								alert("Signup failed: " + data.msg);
 							}
 						})
 						.catch((error) => {
@@ -65,12 +65,42 @@
 				});
 			</script>
 			<div class="login text-center">
-				<form action="http://localhost:3000/login" method="post">
+				<form id="login-form" action="http://localhost:3000/login" method="post">
 					<label for="chk" aria-hidden="true">Login</label>
 					<input type="email" name="email" placeholder="Email" required="">
 					<input type="password" name="password" placeholder="Password" required="">
 					<button type="submit" class="button">Login</button>
 				</form>
+				<script>
+					document.getElementById('login-form').addEventListener('submit', function (event) {
+						event.preventDefault(); // Prevent the default form submission
+	
+						// Fetch API request to the backend
+						fetch('http://localhost:3000/login', {
+							method: 'POST',
+							headers: {
+								'Content-Type': 'application/json',
+							},
+							body: JSON.stringify({
+								email: event.target.email.value,
+								password: event.target.password.value,
+							}),
+						})
+							.then((response) => response.json())
+							.then((data) => {
+								if (data.success === true) {
+									// alert("Signup was successful! Please login to continue. ");
+									// Redirect to another page after successful login
+									window.location.href = '/afterlogin';
+								} else {
+									alert("Login failed: " + data.msg);
+								}
+							})
+							.catch((error) => {
+								console.error("An error occurred:", error);
+							});
+					});
+				</script>
 				<a href="/forget-password" >Forget Password?</a>
 				
 			</div>
