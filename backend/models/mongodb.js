@@ -60,11 +60,11 @@ const prebookSchema = new mongoose.Schema({
     required: true,
   },
   inTimeInSeconds: {
-    type: String,
+    type: Number,
     required: true,
   },
   outTimeInSeconds: {
-    type: String,
+    type: Number,
     required: true,
   },
   email: {
