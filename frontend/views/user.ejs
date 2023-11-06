@@ -56,8 +56,12 @@
         </div>
             <div style="display: flex;justify-content: center;align-items: center;"><i class="fa-solid fa-user text-white text-center" style="font-size: 10em;"></i></div>
         </div>
+        <div id="hasTable">
         <table class="text-center text-white">
           <thead>
+            <tr class="text-center text-white my-auto">
+              <h2 class="text-center text-white my-3 font-weight-bold" style="column-span: all;">Booking Details</h2>
+            </tr>
             <tr>
                <th>Username</th>
                <!-- <th>Email</th> -->
@@ -66,6 +70,7 @@
                <th>In Time</th>
                <th>Out Time</th>
                <th>Payable Amount</th>
+               <th>Status</th>
             </tr>
          </thead>
          <tbody id="data-output">
@@ -78,10 +83,15 @@
               <td><%= (data.records[i].InTime) %></td>
               <td><%= (data.records[i].OutTime) %></td>
               <td><%= (data.records[i].PayableAmount)/100 %></td>
+              <td>Booked</td>
             </tr>
             <% } %>
          </tbody>
         </table>
+      </div>
+      <div class="text-center" id="hasSignOutButton" style="position: relative;bottom: 20px;">
+        <a href="/index" style="text-decoration: none;"><button class="favorite styled"  id="LogOut" value="Log Out" style="display: inline;" >Log Out</button></a>
+      </div>
   </div>
     <footer>
         <div class="footer-top">

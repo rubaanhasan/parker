@@ -6,8 +6,8 @@
   .giveBackground {
     background-image: url(Background1.jpg);
     background-repeat: no-repeat;
-    background-size: 100vw 120vh;
-    height: 85vh;
+    background-size: 100vw 2000vh;
+    min-height: 85vh;
   }
   .userProfile {
     width: 80vw;
@@ -30,19 +30,41 @@
     display: inline-block;
     border: 1px solid white;
     width: 80vw;
+    display: inline-block;
+    margin: 40px 10vw;
   }
-  
+  th,td{
+    width: 16vw;
+  }
+  tr{
+    outline: thin solid;
+  }
+  .styled {
+    display: block;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(0, 100, 255,0.71);
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
 }
-@media screen and (min-width:400px) and (max-width:780px) {
+@media screen and (min-width:532px) and (max-width:780px) {
   body {
     overflow-x: hidden;
   }
-  
   .giveBackground {
     background-image: url(Background1.jpg);
     background-repeat: no-repeat;
-    background-size: 100vw 120vh;
-    height: 85vh;
+    background-size: 100vw 2000vh;
+    min-height: 85vh;
   }
   .userProfile {
     width: 80vw;
@@ -65,5 +87,86 @@
     display: inline-block;
     border: 1px solid white;
     width: 80vw;
-  }  
+    display: inline-block;
+    margin: 40px 10vw;
+  }
+  th,td{
+    width: 16vw;
+  }
+  tr{
+    outline: thin solid;
+  }
+  .styled {
+    display: block;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(0, 100, 255,0.71);
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
+}
+@media screen and (max-width:532px) {
+  body {
+    overflow-x: hidden;
+  }
+  .giveBackground {
+    background-image: url(Background1.jpg);
+    background-repeat: no-repeat;
+    background-size: 100vw 2000vh;
+    min-height: 85vh;
+  }
+  .userProfile {
+    width: 80vw;
+    margin: 0px 10vw;
+    padding: 0;
+    overflow: hidden;
+  }
+  div div h2 {
+    margin-top: 20px;
+  }
+  .makeGrid {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    width: 80vw;
+    margin: 0px 10vw;
+    height: 30vh;
+    border: 1px solid white;
+  }
+  #hasTable {
+    display: inline-block;
+    border: 1px solid white;
+    width: 80vw;
+    display: inline-block;
+    margin: 40px 10vw;
+  }
+  th,td{
+    width: 16vw;
+  }
+  tr{
+    outline: thin solid;
+  }
+  .styled {
+    display: block;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(0, 100, 255,0.71);
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
 }
