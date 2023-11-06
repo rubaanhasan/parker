@@ -59,6 +59,14 @@ const prebookSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  inTimeInSeconds: {
+    type: String,
+    required: true,
+  },
+  outTimeInSeconds: {
+    type: String,
+    required: true,
+  },
   email: {
     type: String,
     required: true,

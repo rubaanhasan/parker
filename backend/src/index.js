@@ -313,12 +313,14 @@ const url =
 
 app.post("/view", async (req, res) => {
   const client = new MongoClient(url, {
-    // useNewUrlParser: true,
-    // useUnifiedTopology: true,
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
   });
 
-  const startTimeInSeconds = req.body.intime; // Use req.body.obj.intime as startTimeInSeconds
-  const endTimeInSeconds = req.body.endTime; // Use req.body.obj.endTime as endTimeInSeconds
+  const startTimeInSeconds = timeStringToSeconds(req.body.inTime); // Use req.body.obj.intime as startTimeInSeconds
+  const endTimeInSeconds = timeStringToSeconds(req.body.outTime); // Use req.body.obj.endTime as endTimeInSeconds
+  console.log(startTimeInSeconds)
+  console.log(endTimeInSeconds)
 
   const dbName = "test"; // Include dbName directly
   const collectionName = "prebook"; // Include collectionName directly
@@ -327,19 +329,24 @@ app.post("/view", async (req, res) => {
     await client.connect();
     const db = client.db(dbName);
     const collection = db.collection(collectionName);
-
+    
+    
     const count = await collection.countDocuments({
+       
       $or: [
         {
-          inTime: { $gte: startTimeInSeconds, $lte: endTimeInSeconds }, // Check if inTime is within the range
+          inTimeInSeconds: { $gte: startTimeInSeconds, $lte: endTimeInSeconds }, // Check if inTime is within the range
         },
         {
-          exitTime: { $gte: startTimeInSeconds, $lte: endTimeInSeconds }, // Check if exitTime is within the range
+          outTimeInSeconds: { $gte: startTimeInSeconds, $lte: endTimeInSeconds }, // Check if exitTime is within the range
         },
         {
-          inTime: { $lte: startTimeInSeconds },
-          exitTime: { $gte: endTimeInSeconds },
+          inTimeInSeconds: { $lte: startTimeInSeconds },
+          outTimeInSeconds: { $gte: endTimeInSeconds },
         },
+
+      
+        
       ],
     });
     console.log(`Number of records within the time range: ${count}`);
@@ -402,6 +409,8 @@ app.post("/createOrder", async (req, res) => {
            Date,
           InTime,
           OutTime,
+          inTimeInSeconds,
+          outTimeInSeconds,
           NumberPlate,
           PayableAmount: payableAmount,
         });
