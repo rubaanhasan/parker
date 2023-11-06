@@ -1,0 +1,1287 @@
+@media screen and (min-width:1150px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+    #BG_Img1 {
+        height: 101vh;
+        width: 100vw;
+        margin: 0;
+    }
+    div h2 {
+        display: inline-block;
+        position: absolute;
+        top: 30vh;
+        width: 50vw;
+        left: 9vw;
+        font-size: 70px;
+        color: white;
+    }
+    #HomeTop{
+        position: absolute;
+        font-family: 'Poppins', sans-serif;
+    }
+    #navbarTogglerDemo01{
+        width: 99vw;
+    }
+    #Car {
+        height: 25vh;
+        width: 25vw;
+        position: absolute;
+        top: 38vh;
+        right: 9vw;
+    }
+
+    .h13 {
+        display: inline-block;
+        position: absolute;
+        top: 72vh;
+        width: 40vw;
+        left: 9vw;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.27);
+    }
+
+    #Explore {
+        display: inline-block;  
+        position: absolute;
+        top: 81vh;
+        width: 10vw;
+        left: 8vw;
+        scroll-behavior: smooth;
+    }
+
+
+    #BG_Explore {
+        position: relative;
+        left: 4vw;
+        display: inline-block;
+        width: 10vw;
+        height: 8vh;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+        bottom: 0.1vh;
+    }
+    #ActualForm{
+        display: flex;
+        width: 80vw;
+        padding: 10px 10px;
+        justify-content: space-around;
+    }
+    #ExploreText {
+        position: relative;
+        bottom: 4vh;
+        left: 5.9vw;
+        font-size: larger;
+        color: rgb(217, 217, 217);
+    }
+
+    #SectionExplore {
+        height: 11vh;
+        margin: 0;
+        position: relative;
+        bottom: 1vh;
+        background-color: rgb(247,247,255);
+        border: 1px solid black;
+        scroll-behavior: smooth;
+    }
+    #GMap{
+        display: inline-block;
+        margin: 20px 0px;
+        padding: 0;
+        width: 90vw;
+        height: 70vh;
+        left: 5vw;
+        position: relative;
+        border: 2px solid black;
+    }
+    #hasForm{
+        height: 6vh;
+        width: 80vw;
+        margin-top: 15px;
+        margin-left: 10vw;
+    }
+    .L0Div{
+        background-color: rgb(246, 248, 255);
+        box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.25);
+        display: grid;
+        padding-bottom: 20px;
+    }
+    .L1Div{
+        display: grid;
+        grid-template-columns: 25% 75%;
+        width: 80vw;
+        margin-top: 15px;
+        margin-left: 10vw;
+        background-color: white;
+        box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.25);
+        border-radius: 7px;
+
+    }
+    .image{
+        width: 230px;
+        height: 230px;
+        border-radius: 7px;
+        display: inline-block;
+    }
+    .L2Div{
+        display: inline-block;
+    }
+    .innerText{
+        font-size: 30px;
+        margin-top: 8px;
+    }
+    .innerText2{
+        margin-right: 30px;
+        margin-top: 7px;
+        font-size: 16px;
+        color: rgba(31, 31, 31, 0.491);
+    }
+    .innerText3{
+        font-size: 18px;
+        display: inline-block;
+    }
+
+    .styled {
+    display: block;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(0, 100, 255,0.71);
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
+    .Dropdown{
+        font-size: 90% ;
+        margin-bottom: 5px;
+    } 
+    .styled:hover {
+    background-color: rgb(10, 100, 255,0.71);
+    }
+
+    .styled:active {
+    box-shadow:
+        inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+        inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+    }
+}
+@media screen and (max-width:1150px) and (min-width:1020px) {
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+    #BG_Img1 {
+        height: 101vh;
+        width: 100vw;
+        margin: 0;
+    }
+    #HomeTop{
+        position: absolute;
+        font-family: 'Poppins', sans-serif;
+    }
+    #navbarTogglerDemo01{
+        width: 99vw;
+    }
+    div h2 {
+        display: inline-block;
+        position: absolute;
+        top: 30vh;
+        width: 50vw;
+        left: 9vw;
+        font-size: 70px;
+        color: white;
+    }
+
+    #Car {
+        height: 25vh;
+        width: 25vw;
+        position: absolute;
+        top: 38vh;
+        right: 9vw;
+    }
+
+    .h13 {
+        display: inline-block;
+        position: absolute;
+        top: 72vh;
+        width: 40vw;
+        left: 9vw;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.27);
+    }
+
+    #Explore {
+        display: inline-block;  
+        position: absolute;
+        top: 81vh;
+        width: 10vw;
+        left: 8vw;
+        scroll-behavior: smooth;
+    }
+
+
+    #BG_Explore {
+        position: relative;
+        left: 4vw;
+        display: inline-block;
+        width: 10vw;
+        height: 8vh;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+        bottom: 0.1vh;
+    }
+
+    #ExploreText {
+        position: relative;
+        bottom: 4vh;
+        left: 5.2vw;
+        font-size: larger;
+        color: rgb(217, 217, 217);
+    }
+
+    #SectionExplore {
+        height: 11vh;
+        margin: 0;
+        position: relative;
+        bottom: 1vh;
+        background-color: rgb(247,247,255);
+        border: 1px solid black;
+        scroll-behavior: smooth;
+    }
+    #hasForm{
+        height: vh;
+        width: 90vw;
+        margin-top: 15px;
+        margin-left: 5vw;
+    }
+    #GMap{
+        display: inline-block;
+        margin: 20px 0px;
+        padding: 0;
+        width: 90vw;
+        height: 70vh;
+        left: 5vw;
+        position: relative;
+        border: 2px solid black;
+    }
+    #ActualForm{
+        display: flex;
+        width: 90vw;
+        padding: 10px 10px;
+        justify-content: space-around;
+    }
+    .L0Div{
+        background-color: rgb(246, 248, 255);
+        box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.25);
+        display: grid;
+        padding-bottom: 20px;
+    }
+    .L1Div{
+        display: grid;
+        grid-template-columns: 25% 75%;
+        width: 90vw;
+        margin-top: 15px;
+        margin-left: 5vw;
+        background-color: white;
+        box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.25);
+        border-radius: 7px;
+
+    }
+    .image{
+        width: 230px;
+        height: 230px;
+        border-radius: 7px;
+        display: inline-block;
+    }
+    .L2Div{
+        display: inline-block;
+    }
+    .innerText{
+        font-size: 30px;
+        margin-top: 8px;
+    }
+    .innerText2{
+        margin-right: 30px;
+        margin-top: 7px;
+        font-size: 16px;
+        color: rgba(31, 31, 31, 0.491);
+    }
+    .innerText3{
+        font-size: 18px;
+        display: inline-block;
+    }
+
+    .styled {
+    display: block;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(0, 100, 255,0.71);
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
+    .Dropdown{
+        font-size: 90% ;
+        margin-bottom: 5px;
+    } 
+    .styled:hover {
+    background-color: rgb(10, 100, 255,0.71);
+    }
+
+    .styled:active {
+    box-shadow:
+        inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+        inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+    }
+}
+@media screen and (max-width:1020px) and (min-width:992px){
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+    #BG_Img1 {
+        height: 101vh;
+        width: 100vw;
+        margin: 0;
+    }
+    div h2 {
+        display: inline-block;
+        position: absolute;
+        top: 30vh;
+        width: 50vw;
+        left: 9vw;
+        font-size: 70px;
+        color: white;
+    }
+    #HomeTop{
+        position: absolute;
+        font-family: 'Poppins', sans-serif;
+    }
+    #navbarTogglerDemo01{
+        width: 99vw;
+    }
+    #Car {
+        height: 25vh;
+        width: 25vw;
+        position: absolute;
+        top: 38vh;
+        right: 9vw;
+    }
+
+    .h13 {
+        display: inline-block;
+        position: absolute;
+        top: 72vh;
+        width: 40vw;
+        left: 9vw;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.27);
+    }
+
+    #Explore {
+        display: inline-block;  
+        position: absolute;
+        top: 81vh;
+        width: 10vw;
+        left: 8vw;
+        scroll-behavior: smooth;
+    }
+
+
+    #BG_Explore {
+        position: relative;
+        left: 4vw;
+        display: inline-block;
+        width: 10vw;
+        height: 8vh;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+        bottom: 0.1vh;
+    }
+
+    #ExploreText {
+        position: relative;
+        bottom: 4vh;
+        left: 5.2vw;
+        font-size: larger;
+        color: rgb(217, 217, 217);
+    }
+
+    #SectionExplore {
+        height: 11vh;
+        margin: 0;
+        position: relative;
+        bottom: 1vh;
+        background-color: rgb(247,247,255);
+        border: 1px solid black;
+        scroll-behavior: smooth;
+    }
+    #hasForm{
+        height: vh;
+        width: 90vw;
+        margin-top: 15px;
+        margin-left: 5vw;
+    }
+    #GMap{
+        display: inline-block;
+        margin: 20px 0px;
+        padding: 0;
+        width: 90vw;
+        height: 70vh;
+        left: 5vw;
+        position: relative;
+        border: 2px solid black;
+    }
+    #ActualForm{
+        display: flex;
+        width: 90vw;
+        padding: 10px 10px;
+        justify-content: space-around;
+    }
+    .L0Div{
+        background-color: rgb(246, 248, 255);
+        box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.25);
+        display: grid;
+        padding-bottom: 20px;
+    }
+    .L1Div{
+        display: grid;
+        grid-template-columns: 25% 75%;
+        width: 90vw;
+        margin-top: 15px;
+        margin-left: 5vw;
+        background-color: white;
+        box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.25);
+        border-radius: 7px;
+
+    }
+    .image{
+        width: 230px;
+        height: 230px;
+        border-radius: 7px;
+        display: inline-block;
+    }
+    .L2Div{
+        display: inline-block;
+    }
+    .innerText{
+        font-size: 25px;
+        margin-top: 8px;
+        text-align: center;
+    }
+    .innerText2{
+        margin-right: 30px;
+        margin-top: 7px;
+        font-size: 16px;
+        color: rgba(31, 31, 31, 0.491);
+        text-align: center;
+    }
+    .innerText3{
+        font-size: 18px;
+        display: block;
+        text-align: center;
+    }
+
+    .styled {
+    display: block;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(0, 100, 255,0.71);
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
+    .Dropdown{
+        font-size: 90% ;
+        margin-bottom: 5px;
+    } 
+    .styled:hover {
+    background-color: rgb(10, 100, 255,0.71);
+    }
+
+    .styled:active {
+    box-shadow:
+        inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+        inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+    }
+}
+@media screen and (min-width:859px) and (max-width:992px){
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+    #BG_Img1 {
+        height: 85vh;
+        width: 100vw;
+        margin: 0;
+    }
+    div h2 {
+        display: inline-block;
+        position: absolute;
+        top: 25vh;
+        width: 50vw;
+        left: 9vw;
+        font-size: 60px;
+        color: white;
+    }
+
+    #Car {
+        height: 25vh;
+        width: 25vw;
+        position: absolute;
+        top: 38vh;
+        right: 9vw;
+    }
+
+    .h13 {
+        display: inline-block;
+        position: absolute;
+        top: 60vh;
+        width: 40vw;
+        left: 9vw;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.27);
+    }
+
+    #Explore {
+        display: inline-block;  
+        position: absolute;
+        top: 73vh;
+        width: 14vw;
+        left: 8vw;
+        scroll-behavior: smooth;
+    }
+
+
+    #BG_Explore {
+        position: relative;
+        left: 4vw;
+        display: inline-block;
+        width: 10vw;
+        height: 8vh;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+        bottom: 0.1vh;
+    }
+
+    #ExploreText {
+        position: relative;
+        bottom: 4vh;
+        left: 5.3vw;
+        font-size: medium;
+        color: rgb(217, 217, 217);
+    }
+
+    #SectionExplore {
+        height: 11vh;
+        margin: 0;
+        position: relative;
+        bottom: 1vh;
+        background-color: rgb(247,247,255);
+        border: 1px solid black;
+        scroll-behavior: smooth;
+    }
+    #hasForm{
+        height: vh;
+        width: 90vw;
+        margin-top: 15px;
+        margin-left: 5vw;
+    }
+    #GMap{
+        display: inline-block;
+        margin: 20px 0px;
+        padding: 0;
+        width: 90vw;
+        height: 70vh;
+        left: 5vw;
+        position: relative;
+        border: 2px solid black;
+    }
+    #ActualForm{
+        display: flex;
+        width: 90vw;
+        padding: 10px 10px;
+        justify-content: space-around;
+    }
+    .L0Div{
+        background-color: rgb(246, 248, 255);
+        box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.25);
+        display: grid;
+        padding-bottom: 20px;
+    }
+    .L1Div{
+        display: grid;
+        grid-template-columns: 30% 70%;
+        width: 90vw;
+        margin-top: 15px;
+        margin-left: 5vw;
+        background-color: white;
+        box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.25);
+        border-radius: 7px;
+
+    }
+    .image{
+        width: 230px;
+        height: 230px;
+        border-radius: 7px;
+        display: inline-block;
+    }
+    .L2Div{
+        display: inline-block;
+    }
+    .innerText{
+        font-size: 25px;
+        margin-top: 8px;
+        text-align: center;
+    }
+    .innerText2{
+        position: relative;
+        /* left: 10px; */
+        margin-top: 7px;
+        font-size: 16px;
+        color: rgba(31, 31, 31, 0.491);
+        text-align: center;
+        height:fit-content;
+        /* width: 90%; */
+    }
+    .innerText3{
+        font-size: 18px;
+        display: block;
+        text-align: center;
+    }
+
+    .styled {
+    display: block;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(0, 100, 255,0.71);
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
+    .Dropdown{
+        font-size: 90% ;
+        margin-bottom: 5px;
+    } 
+    .styled:hover {
+    background-color: rgb(10, 100, 255,0.71);
+    }
+
+    .styled:active {
+    box-shadow:
+        inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+        inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+    }
+}
+@media screen and (min-width:843px) and (max-width:859px){
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+    #BG_Img1 {
+        height: 85vh;
+        width: 100vw;
+        margin: 0;
+    }
+    div h2 {
+        display: inline-block;
+        position: absolute;
+        top: 25vh;
+        width: 50vw;
+        left: 9vw;
+        font-size: 60px;
+        color: white;
+    }
+
+    #Car {
+        height: 25vh;
+        width: 25vw;
+        position: absolute;
+        top: 38vh;
+        right: 9vw;
+    }
+
+    .h13 {
+        display: inline-block;
+        position: absolute;
+        top: 60vh;
+        width: 40vw;
+        left: 9vw;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.27);
+    }
+
+    #Explore {
+        display: inline-block;  
+        position: absolute;
+        top: 73vh;
+        width: 14vw;
+        left: 8vw;
+        scroll-behavior: smooth;
+    }
+
+
+    #BG_Explore {
+        position: relative;
+        left: 4vw;
+        display: inline-block;
+        width: 10vw;
+        height: 8vh;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+        bottom: 0.1vh;
+    }
+
+    #ExploreText {
+        position: relative;
+        bottom: 4vh;
+        left: 5.2vw;
+        font-size: medium;
+        color: rgb(217, 217, 217);
+    }
+
+    #SectionExplore {
+        height: 11vh;
+        margin: 0;
+        position: relative;
+        bottom: 1vh;
+        background-color: rgb(247,247,255);
+        border: 1px solid black;
+        scroll-behavior: smooth;
+    }
+    #GMap{
+        display: inline-block;
+        margin: 20px 0px;
+        padding: 0;
+        width: 90vw;
+        height: 70vh;
+        left: 5vw;
+        position: relative;
+        border: 2px solid black;
+    }
+    #hasForm{
+        height: 40px;
+        width: 95vw;
+        margin: 10px auto;
+        font-size:smaller;
+    }
+    label{
+        position: relative;
+        top: 4px;
+    }
+    #ActualForm{
+        display: flex;
+        height: 38px;
+        width: 95vw;
+        padding: 5px 5px;
+        justify-content: space-around;
+    }
+    .L0Div{
+        background-color: rgb(246, 248, 255);
+        box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.25);
+        display: grid;
+        padding-bottom: 20px;
+    }
+    .L1Div{
+        display: grid;
+        grid-template-columns: 30% 70%;
+        width: 90vw;
+        margin-top: 15px;
+        margin-left: 5vw;
+        background-color: white;
+        box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.25);
+        border-radius: 7px;
+
+    }
+    .image{
+        width: 230px;
+        height: 230px;
+        border-radius: 7px;
+        display: inline-block;
+    }
+    .L2Div{
+        display: inline-block;
+    }
+    .innerText{
+        font-size: 25px;
+        margin-top: 8px;
+        text-align: center;
+    }
+    .innerText2{
+        position: relative;
+        /* left: 10px; */
+        margin-top: 7px;
+        font-size: 16px;
+        color: rgba(31, 31, 31, 0.491);
+        text-align: center;
+        height:fit-content;
+        /* width: 90%; */
+    }
+    .innerText3{
+        font-size: 18px;
+        display: block;
+        text-align: center;
+    }
+
+    .styled {
+    display: block;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(0, 100, 255,0.71);
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
+    .Dropdown{
+        font-size: 90% ;
+        margin-bottom: 5px;
+    } 
+    .styled:hover {
+    background-color: rgb(10, 100, 255,0.71);
+    }
+
+    .styled:active {
+    box-shadow:
+        inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+        inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+    }
+}
+@media screen and (min-width:795px) and (max-width:843px){
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+    #BG_Img1 {
+        height: 65vh;
+        width: 100vw;
+        margin: 0;
+    }
+    div h2 {
+        display: inline-block;
+        position: absolute;
+        top: 25vh;
+        width: 50vw;
+        left: 9vw;
+        font-size: 50px;
+        color: white;
+    }
+
+    #Car {
+        height: 25vh;
+        width: 25vw;
+        position: absolute;
+        top: 30vh;
+        right: 9vw;
+    }
+
+    .h13 {
+        display: inline-block;
+        position: absolute;
+        top: 52vh;
+        width: 40vw;
+        left: 9vw;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.27);
+    }
+
+    #Explore {
+        display: inline-block;  
+        position: absolute;
+        top: 68vh;
+        width: 14vw;
+        left: 8vw;
+        scroll-behavior: smooth;
+    }
+
+
+    #BG_Explore {
+        position: relative;
+        left: 4vw;
+        display: inline-block;
+        width: 10vw;
+        height: 8vh;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+        bottom: 0.1vh;
+    }
+
+    #ExploreText {
+        position: relative;
+        bottom: 4vh;
+        left: 5vw;
+        font-size:medium;
+        color: rgb(217, 217, 217);
+    }
+
+    #SectionExplore {
+        height: 11vh;
+        margin: 0;
+        position: relative;
+        bottom: 1vh;
+        background-color: rgb(247,247,255);
+        border: 1px solid black;
+        scroll-behavior: smooth;
+    }
+    #GMap{
+        display: inline-block;
+        margin: 20px 0px;
+        padding: 0;
+        width: 90vw;
+        height: 70vh;
+        left: 5vw;
+        position: relative;
+        border: 2px solid black;
+    }
+    #hasForm{
+        height: 40px;
+        width: 95vw;
+        margin: 10px auto;
+        font-size:smaller;
+    }
+    #hasForm label{
+        font-size : 12px;
+        position: relative;
+        top: 4px;
+    }
+    #ActualForm{
+        display: flex;
+        height: 38px;
+        width: 95vw;
+        padding: 5px 5px;
+        justify-content: space-around;
+    }
+    .L0Div{
+        background-color: rgb(246, 248, 255);
+        box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.25);
+        display: grid;
+        padding-bottom: 20px;
+    }
+    .L1Div{
+        display: grid;
+        grid-template-columns: 30% 70%;
+        width: 95vw;
+        margin-top: 15px;
+        margin-left: 2vw;
+        background-color: white;
+        box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.25);
+        border-radius: 7px;
+
+    }
+    .image{
+        width: 230px;
+        height: 230px;
+        border-radius: 7px;
+        display: inline-block;
+    }
+    .L2Div{
+        display: inline-block;
+    }
+    .innerText{
+        font-size: 25px;
+        margin-top: 8px;
+        text-align: center;
+    }
+    .innerText2{
+        position: relative;
+        /* left: 10px; */
+        margin-top: 7px;
+        font-size: 14px;
+        color: rgba(31, 31, 31, 0.491);
+        text-align: center;
+        height:59px;
+        /* width: 90%; */
+    }
+    .innerText3{
+        font-size: 18px;
+        display: block;
+        text-align: center;
+    }
+
+    .styled {
+    display: block;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(0, 100, 255,0.71);
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
+    .Dropdown{
+        font-size: 90% ;
+        margin-bottom: 5px;
+    } 
+    .styled:hover {
+    background-color: rgb(10, 100, 255,0.71);
+    }
+
+    .styled:active {
+    box-shadow:
+        inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+        inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+    }
+}
+@media screen and (max-width:795px){
+    * {
+        margin: 0;
+        padding: 0;
+    }
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+    }
+    #BG_Img1 {
+        height: 65vh;
+        width: 100vw;
+        margin: 0;
+    }
+    div h2 {
+        display: inline-block;
+        position: absolute;
+        top: 25vh;
+        width: 50vw;
+        left: 9vw;
+        font-size: 50px;
+        color: white;
+    }
+
+    #Car {
+        height: 25vh;
+        width: 25vw;
+        position: absolute;
+        top: 30vh;
+        right: 9vw;
+    }
+
+    .h13 {
+        display: inline-block;
+        position: absolute;
+        top: 52vh;
+        width: 40vw;
+        left: 9vw;
+        font-size: 20px;
+        color: rgba(255, 255, 255, 0.27);
+    }
+
+    #Explore {
+        display: inline-block;  
+        position: absolute;
+        top: 68vh;
+        width: 14vw;
+        left: 8vw;
+        scroll-behavior: smooth;
+    }
+
+
+    #BG_Explore {
+        position: relative;
+        left: 4vw;
+        display: inline-block;
+        width: 10vw;
+        height: 8vh;
+        margin: 0;
+        padding: 0;
+        opacity: 1;
+        bottom: 0.1vh;
+    }
+
+    #ExploreText {
+        position: relative;
+        bottom: 4vh;
+        left: 5vw;
+        font-size:medium;
+        color: rgb(217, 217, 217);
+    }
+
+    #SectionExplore {
+        height: 11vh;
+        margin: 0;
+        position: relative;
+        bottom: 1vh;
+        background-color: rgb(247,247,255);
+        border: 1px solid black;
+        scroll-behavior: smooth;
+    }
+    #GMap{
+        display: inline-block;
+        margin: 20px 0px;
+        padding: 0;
+        width: 90vw;
+        height: 70vh;
+        left: 5vw;
+        position: relative;
+        border: 2px solid black;
+    }
+    #hasForm{
+        height: 40px;
+        width: 95vw;
+        margin: 10px auto;
+        font-size:smaller;
+    }
+    #hasForm label{
+        font-size : 12px;
+        position: relative;
+        top: 4px;
+    }
+    #ActualForm{
+        display: flex;
+        height: 38px;
+        width: 95vw;
+        padding: 5px 5px;
+        justify-content: space-around;
+    }
+    .L0Div{
+        background-color: rgb(246, 248, 255);
+        box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.25);
+        display: grid;
+        padding-bottom: 20px;
+    }
+    .L1Div{
+        display: grid;
+        grid-template-columns: 30% 70%;
+        width: 95vw;
+        margin-top: 15px;
+        margin-left: 2vw;
+        background-color: white;
+        box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.25);
+        border-radius: 7px;
+
+    }
+    .image{
+        width: 230px;
+        height: 230px;
+        border-radius: 7px;
+        display: inline-block;
+    }
+    .L2Div{
+        display: inline-block;
+    }
+    .innerText{
+        font-size: 25px;
+        margin-top: 8px;
+        text-align: center;
+    }
+    .innerText2{
+        position: relative;
+        /* left: 10px; */
+        margin-top: 7px;
+        font-size: 14px;
+        color: rgba(31, 31, 31, 0.491);
+        text-align: center;
+        height:59px;
+        /* width: 90%; */
+    }
+    .innerText3{
+        font-size: 18px;
+        display: block;
+        text-align: center;
+    }
+
+    .styled {
+    display: block;
+    border: 0;
+    line-height: 2.5;
+    padding: 0 20px;
+    font-size: 1rem;
+    text-align: center;
+    color: #fff;
+    text-shadow: 1px 1px 1px #000;
+    border-radius: 10px;
+    background-color: rgb(0, 100, 255,0.71);
+    background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
+    box-shadow:
+        inset 2px 2px 3px rgba(255, 255, 255, 0.6),
+        inset -2px -2px 3px rgba(0, 0, 0, 0.6);
+    }
+    .Dropdown{
+        font-size: 90% ;
+        margin-bottom: 5px;
+    } 
+    .styled:hover {
+    background-color: rgb(10, 100, 255,0.71);
+    }
+
+    .styled:active {
+    box-shadow:
+        inset -2px -2px 3px rgba(255, 255, 255, 0.6),
+        inset 2px 2px 3px rgba(0, 0, 0, 0.6);
+    }
+}    

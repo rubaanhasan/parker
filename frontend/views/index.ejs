@@ -5,170 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parker</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-        #BG_Img1 {
-            height: 101vh;
-            width: 100vw;
-            margin: 0;
-        }
-        div h2 {
-            display: inline-block;
-            position: absolute;
-            top: 30vh;
-            width: 50vw;
-            left: 9vw;
-            font-size: 70px;
-            color: white;
-        }
-
-        #Car {
-            height: 25vh;
-            width: 25vw;
-            position: absolute;
-            top: 38vh;
-            right: 9vw;
-        }
-
-        .h13 {
-            display: inline-block;
-            position: absolute;
-            top: 72vh;
-            width: 40vw;
-            left: 9vw;
-            font-size: 20px;
-            color: rgba(255, 255, 255, 0.27);
-        }
-
-        #Explore {
-            display: inline-block;  
-            position: absolute;
-            top: 81vh;
-            width: 10vw;
-            left: 8vw;
-            scroll-behavior: smooth;
-        }
-        
-
-        #BG_Explore {
-            position: relative;
-            left: 4vw;
-            display: inline-block;
-            width: 10vw;
-            height: 8vh;
-            margin: 0;
-            padding: 0;
-            opacity: 1;
-            bottom: 0.1vh;
-        }
-
-        #ExploreText {
-            position: relative;
-            bottom: 4vh;
-            left: 5.9vw;
-            font-size: larger;
-            color: rgb(217, 217, 217);
-        }
-
-        #SectionExplore {
-            height: 11vh;
-            margin: 0;
-            position: relative;
-            bottom: 1vh;
-            background-color: rgb(247,247,255);
-            border: 1px solid black;
-            scroll-behavior: smooth;
-        }
-        #GMap{
-            display: inline-block;
-            margin: 20px 0px;
-            padding: 0;
-            width: 90vw;
-            height: 70vh;
-            left: 5vw;
-            position: relative;
-            border: 2px solid black;
-        }
-        .L0Div{
-            background-color: rgb(246, 248, 255);
-            box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.25);
-            display: grid;
-            padding-bottom: 20px;
-        }
-        .L1Div{
-            display: grid;
-            grid-template-columns: 25% 75%;
-            width: 80vw;
-            margin-top: 15px;
-            margin-left: 10vw;
-            background-color: white;
-            box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.25);
-            border-radius: 7px;
-
-        }
-        .image{
-            width: 230px;
-            height: 230px;
-            border-radius: 7px;
-            display: inline-block;
-        }
-        .L2Div{
-            display: inline-block;
-        }
-        .innerText{
-            font-size: 30px;
-            margin-top: 8px;
-        }
-        .innerText2{
-            margin-right: 30px;
-            margin-top: 7px;
-            font-size: 16px;
-            color: rgba(31, 31, 31, 0.491);
-        }
-        .innerText3{
-            font-size: 18px;
-            display: inline-block;
-        }
-       
-    .styled {
-        display: block;
-        border: 0;
-        line-height: 2.5;
-        padding: 0 20px;
-        font-size: 1rem;
-        text-align: center;
-        color: #fff;
-        text-shadow: 1px 1px 1px #000;
-        border-radius: 10px;
-        background-color: rgb(0, 100, 255,0.71);
-        background-image: linear-gradient(to top left, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) 30%, rgba(0, 0, 0, 0));
-        box-shadow:
-            inset 2px 2px 3px rgba(255, 255, 255, 0.6),
-            inset -2px -2px 3px rgba(0, 0, 0, 0.6);
-        }
-        .Dropdown{
-            font-size: 90% ;
-            margin-bottom: 5px;
-        } 
-    .styled:hover {
-    background-color: rgb(10, 100, 255,0.71);
-    }
-
-    .styled:active {
-    box-shadow:
-        inset -2px -2px 3px rgba(255, 255, 255, 0.6),
-        inset 2px 2px 3px rgba(0, 0, 0, 0.6);
-    }
-
-    </style>
+    <link rel="stylesheet" href="index.css">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -177,15 +14,17 @@
     <link rel="stylesheet" href="navbar.css">
     <link rel="stylesheet" href="footer.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg" style="position: absolute;font-family: 'Poppins', sans-serif;" id="HomeTop">
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <div id="hasNavBar">
+    <nav class="navbar navbar-expand-lg"  id="HomeTop">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarTogglerDemo01" style="width: 99vw;">
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01" >
           <a href="/index"><img class="form-inline" src="Parker_Top.png" alt="Logo" id="NavLogo"></a>          
           <ul class="nav ms-auto justify-content-end background-color-dark">
             <li class="nav-item">
@@ -200,6 +39,7 @@
           </ul>
         </div>
       </nav>
+    </div>
     <div>
         <img src="Images/Background1.jpg" alt="Background1" id="BG_Img1">
         <h2>Experience the Convenience of Smart Parking</h2><img src="Images/Car.png" alt="Car" id="Car">
@@ -242,7 +82,7 @@
             <div class="L2Div">
                 <h3 class="innerText">Cross River Mall</h3>
                 <h4 class="innerText2">East Delhi's massive shopping precinct, the Cross River Mall spreads across many acres of land and is too big to be explored in one day.It's located in Shahdara.</h4>
-                <h4 class="innerText3">Parking Capacity : 4000 </h4>
+                <h4 class="innerText3">Parking Capacity : 300 </h4>
                 <br><input class="favorite styled viewAv" type="button" id="Form1" value="View Availability" style="display: inline;"/>
                 <span id="Availability1"></span>
                 <input class="favorite styled prebook" id="Form5" type="button" value="PreBook Now" style="display: inline;margin: 0px 0px 0px 20px;"/>
@@ -254,7 +94,7 @@
             <div class="L2Div">
                 <h3 class="innerText">DLF Promenade</h3>
                 <h4 class="innerText2">Located in the heart of Vasant Kunj is DLF Promenade ,the best in Vasant Kunj.Fully equipped with latest trendy apparel. It's also known as Delhi's Fashion Capital.</h4>
-                <h4 class="innerText3">Parking Capacity : 2000 </h4>
+                <h4 class="innerText3">Parking Capacity : 300 </h4>
                 <div ></div>
 
                 <input class="favorite styled viewAv" type="button" id="Form2" value="View Availability" style="display: inline;"/>
@@ -268,7 +108,7 @@
             <div class="L2Div">
                 <h3 class="innerText">V3S Mall</h3>
                 <h4 class="innerText2">Covers 5 acres, it is one of the trendiest shopping destinations in Laxmi Nagar,East Delhi. Mall offers high quality life style, shopping and eating options under one roof.</h4>
-                <h4 class="innerText3">Parking Capacity : 4000 </h4>
+                <h4 class="innerText3">Parking Capacity : 300 </h4>
                 <div ></div>
                 
                 <input class="favorite styled viewAv"  type="button" id="Form3" value="View Availability" style="display: inline;"/>
@@ -282,7 +122,7 @@
             <div class="L2Div">
                 <h3 class="innerText">Ambience Mall</h3>
                 <h4 class="innerText2">Airy, sophisticated mall offering global retail shops, restaurants, a bowling alley & movie theater.It is one stop place for all varieties of shopping , food , entertainment.</h4>
-                <h4 class="innerText3">Parking Capacity : 4000 </h4>
+                <h4 class="innerText3">Parking Capacity : 300 </h4>
                 <br>
                 <input class="favorite styled viewAv" type="button" id="Form4" value="View Availability" style="display: inline;"/>
                 <span id="Availability4"></span>
