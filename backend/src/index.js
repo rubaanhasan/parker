@@ -111,7 +111,7 @@ app.get('/user', async (req, res) => {
     });
 } catch (error) {
     res.status(500).send('Internal Server Error');
-  }
+  }
 });
 
 
@@ -291,30 +291,15 @@ app.post("/forget-password", async (req, res) => {
     res.status(400).send({ success: false, msg: error.message });
   }
 });
-// app.post("/view", async (req, res) => {
-//   try {
-//     console.log(req.body);
-//     console.log(req.body.obj.inTime);
-//     await countRecords(); // Call the countRecords function to count the records within the specified time range
-// res.status(200).json({
-//   success: true,
-//   msg: `Number of records within the time range: ${count}`,
-// });
-//     res.json({ message: "Records counted within the time range." });
-//   } catch (error) {
-//     console.log("gg");
-//     console.error("Error:", error);
-//     res.status(500).json({ error: "An error occurred during the operation." });
-//   }
-// });
+
 const MongoClient = require("mongodb").MongoClient;
 const url =
   "mongodb+srv://birhadedarshan212:ooad@ooad.tipepbx.mongodb.net/?retryWrites=true&w=majority";
 
 app.post("/view", async (req, res) => {
   const client = new MongoClient(url, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
+    // useNewUrlParser: true,
+    // useUnifiedTopology: true,
   });
 
   const startTimeInSeconds = timeStringToSeconds(req.body.inTime); // Use req.body.obj.intime as startTimeInSeconds
@@ -329,9 +314,9 @@ app.post("/view", async (req, res) => {
     await client.connect();
     const db = client.db(dbName);
     const collection = db.collection(collectionName);
+  
     
-    
-    const count = await collection.countDocuments({
+    const count = await Prebook.countDocuments({
        
       $or: [
         {
@@ -350,13 +335,11 @@ app.post("/view", async (req, res) => {
       ],
     });
     console.log(`Number of records within the time range: ${count}`);
-   
-
-    // console.log(res);
-    // res.redirect("http://localhost:3000/about");
+   ;
+    const availableSpaces = 300 - count;
     res.status(200).json({
       success: true,
-      msg: `Number of records within the time range: ${count}`,
+      msg: `Available slots: ${availableSpaces}`,
     });
     console.log("JIJIJI");
   } catch (err) {
