@@ -1,8 +1,8 @@
-// let elem=document.getElementById("Start1")
-// let yourDate = new Date().toLocaleDateString('en-CA')
-// elem.setAttribute("value",yourDate)
-// elem.setAttribute("min",yourDate)
-// elem.setAttribute("max",yourDate)
+let elem=document.getElementById("Date")
+let yourDate = new Date().toLocaleDateString('en-CA')
+elem.setAttribute("value",yourDate)
+elem.setAttribute("min",yourDate)
+elem.setAttribute("max",yourDate)
 
 // elem=document.getElementById("Start2")
 // yourDate = new Date().toLocaleDateString('en-CA')
@@ -31,6 +31,7 @@ document.getElementById("Form1").addEventListener("click", function () {
   const numberPlate = document.getElementById("NumberPlate").value;
   const username = document.getElementById("username").value;
   const email = document.getElementById("email").value;
+  const Date = document.getElementById("Date").value;
   if(inTime==="" || outTime==="" || numberPlate==="")
   {
     let elem = document.getElementById("Availability1");
@@ -44,6 +45,7 @@ document.getElementById("Form1").addEventListener("click", function () {
   const obj = {
     username,
     email,
+    Date,
     inTime,
     outTime,
     numberPlate,    
@@ -68,6 +70,7 @@ document.getElementById("Form2").addEventListener("click", function () {
   const numberPlate = document.getElementById("NumberPlate").value;
   const username = document.getElementById("username").value;
   const email = document.getElementById("email").value;
+  const Date = document.getElementById("Date").value;
   if(inTime==="" || outTime==="" || numberPlate==="")
   {
     let elem = document.getElementById("Availability2");
@@ -81,6 +84,7 @@ document.getElementById("Form2").addEventListener("click", function () {
   const obj = {
     username,
     email,
+    Date,
     inTime,
     outTime,
     numberPlate,    
@@ -105,6 +109,7 @@ document.getElementById("Form3").addEventListener("click", function () {
   const numberPlate = document.getElementById("NumberPlate").value;
   const username = document.getElementById("username").value;
   const email = document.getElementById("email").value;
+  const Date = document.getElementById("Date").value;
   if(inTime==="" || outTime==="" || numberPlate==="")
   {
     let elem = document.getElementById("Availability2");
@@ -118,6 +123,7 @@ document.getElementById("Form3").addEventListener("click", function () {
   const obj = {
     username,
     email,
+    Date,
     inTime,
     outTime,
     numberPlate,    
@@ -142,6 +148,7 @@ document.getElementById("Form4").addEventListener("click", function () {
   const numberPlate = document.getElementById("NumberPlate").value;
   const username = document.getElementById("username").value;
   const email = document.getElementById("email").value;
+  const Date = document.getElementById("Date").value;
   if(inTime==="" || outTime==="" || numberPlate==="")
   {
     let elem = document.getElementById("Availability2");
@@ -155,6 +162,7 @@ document.getElementById("Form4").addEventListener("click", function () {
   const obj = {
     username,
     email,
+    Date,
     inTime,
     outTime,
     numberPlate,    
