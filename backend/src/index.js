@@ -1,21 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bcryptjs = require("bcryptjs");
-
-
-const {
-  LogInCollection2,
-  PreorderNumberplate,
-  LocalNumberplate,
-  ExitCollection,
-  Prebook,
-  PrebookExited,
-} = require("../models/mongodb");
-
-
-
-
-const { countRecords } = require("../models/mongo");
 const randomstring = require("randomstring");
 const nodemailer = require("nodemailer");
 const path = require("path");
@@ -26,6 +11,15 @@ const Razorpay = require("razorpay");
 const cons = require("consolidate");
 
 
+const { countRecords } = require("../models/mongo");
+const {
+  LogInCollection2,
+  PreorderNumberplate,
+  LocalNumberplate,
+  ExitCollection,
+  Prebook,
+  PrebookExited,
+} = require("../models/mongodb");
 
 
 
@@ -216,11 +210,6 @@ const securePassword = async (password) => {
     return "";
   }
 };
-
-
-
-
-
 //check db
 app.post("/login", async (req, res) => {
   try {
@@ -234,39 +223,25 @@ app.post("/login", async (req, res) => {
     if (check) {
       const passwordMatch = await bcryptjs.compare(password, check.password);
       if (passwordMatch) {
-        console.log("log");
         user = username;
         np = numberplate;
         emu = email;
-        console.log(np);
-        // setTimeout(() => {
-        //   res.redirect("/afterlogin");
-        // }, 1000);
-        res.status(200).json({ success: true, msg: "gg" });
-        // res.redirect("http://localhost:5500/afterlogin.html"); //redirecting home
+        res.status(200).json({ success: true, msg: "Login success" });
       } else {
-        // res.redirect("http://localhost:5500/login.html");
         res.status(200).json({ success: false, msg: "Wrong Password" });
       }
     } else {
-      // res.redirect("http://localhost:5500/login.html"); //no email found that is new user have to redirect on signup
       res
         .status(200)
         .json({ success: false, msg: "Login details are incorrect" });
     }
   } catch (e) {
-    // console.error("Error during signup:", err);
     res.status(500).json({
       success: false,
       msg: "Login details are incorrect",
     });
   }
-});
-
-
-
-
-
+})
 
 // check db
 app.post("/signup", async (req, res) => {

@@ -104,11 +104,7 @@ async function processFileData(data) {
     const NumberPlate = lines[0].trim();
     const intimeStr = lines[2].trim();
     const intimeInSeconds = timeStringToSeconds(intimeStr);
-    console.log(numberplate);
-    console.log(intimeStr);
-    console.log(intimeInSeconds);
 
-   
     try {
       // Check if the numberplate exists in the 'preorder_numberplate' collection
       const preorderResult = await Prebook.findOne({
