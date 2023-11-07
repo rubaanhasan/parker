@@ -1,30 +1,41 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const bcryptjs = require("bcryptjs");
+
+
 const {
   LogInCollection2,
   PreorderNumberplate,
   LocalNumberplate,
   ExitCollection,
   Prebook,
+  PrebookExited,
 } = require("../models/mongodb");
+
+
+
+
 const { countRecords } = require("../models/mongo");
 const randomstring = require("randomstring");
 const nodemailer = require("nodemailer");
 const path = require("path");
 const cors = require("cors");
-
 require("dotenv").config();
-var engines = require("consolidate"); //rb
-// dotenv.config();
+var engines = require("consolidate");
 const Razorpay = require("razorpay");
 const cons = require("consolidate");
-//const { RAZORPAY_ID_KEY, RAZORPAY_SECRET_KEY } = process.env;
+
+
+
+
 
 const razorpayInstance = new Razorpay({
   key_id: "rzp_test_a1bgTfOzP7ZaC4",
   key_secret: "QDTr46VyzzsI5D0vCXztaJce",
 });
+
+
+
 
 const publicPath = path.join(__dirname, "../../frontend/public/CSS");
 const imagesPath = path.join(__dirname, "../../frontend/public/Images");
@@ -33,6 +44,9 @@ const jsPath = path.join(__dirname, "../../frontend/JS");
 var user;
 var np;
 var emu;
+var gg;
+
+
 
 const port = 3000;
 const app = express();
@@ -47,23 +61,35 @@ app.use(express.static(imagesPath));
 app.use(express.static(faviconPath));
 app.use(express.static(jsPath));
 
+
+
+
 // Route for the success page
 app.get("/index", (req, res) => {
   res.render("index");
 });
+
+
 app.get("/", (req, res) => {
   res.render("index");
 });
+
+
 app.get("/about", (req, res) => {
   res.render("about");
 });
+
+
 app.get("/afterlogin", (req, res) => {
-  res.render("afterlogin", {
-    username: `${user}`,
-    email: `${emu}`,
-    numberplate: `${np}`,
-  });
+res.render("afterlogin", {
+  username: `${user}`,
+  email: `${emu}`,
+  numberplate: `${np}`,
 });
+
+});
+
+
 app.get("/ALabout", (req, res) => {
   res.render("ALabout", {
     username: `${user}`,
@@ -71,6 +97,8 @@ app.get("/ALabout", (req, res) => {
     numberplate: `${np}`,
   });
 });
+
+
 app.get("/payment", (req, res) => {
   res.render("payment", {
     username: `${user}`,
@@ -78,55 +106,57 @@ app.get("/payment", (req, res) => {
     numberplate: `${np}`,
   });
 });
-// app.get("/user", (req, res) => {
-  
-// });
+
+
 // Route for the login page
 app.get("/login", (req, res) => {
   res.render("login");
 });
+
+
 app.get("/forget-password", (req, res) => {
   res.render("forget-password");
 });
+
+
 app.get("/view", (req, res) => {
   res.render("view");
 });
 
+
 app.get('/user', async (req, res) => {
   try {
-    const records = await Prebook.find({ username:user, email:emu })
+    const records = await Prebook.find({ username: user, email: emu })
+      .sort({ outTime: -1 }) // Sort by outTime in descending order
+      .exec();
+    console.log(records)
+    const records2 = await PrebookExited.find({ username: user, email: emu })
     .sort({ outTime: -1 }) // Sort by outTime in descending order
     .exec();
-    console.log(records)
-    // console.log("dd")
+    console.log(records2)
+   
     // res.status(200).json(records);
-    res.render("user",data = {
-      records : records,
-      username: `${user}`, 
+    res.render("user", data = {
+      records: records,
+      records2:records2,
+      username: `${user}`,
       email: `${emu}`,
       Date: `${Date}`,
-      // username: `${user}`,
-    //   email: `${emu}`,
-    //   numberplate: `${np}`,
+      //   numberplate: `${np}`,
     });
-} catch (error) {
+
+  } catch (error) {
     res.status(500).send('Internal Server Error');
   }
 });
 
 
 
-
-//console.log(process.env.RAZORPAY_ID_KEY);
-// app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-// const paymentRoute = require("../routes/paymentRoute");
-
 // app.use("/afterlogin", paymentRoute);
 function timeStringToSeconds(timeStr) {
   const [hours, minutes, seconds] = timeStr.split(":").map(Number);
   return hours * 3600 + minutes * 60 + seconds;
 }
-
 const sendResetPasswordMail = async (name, email, token) => {
   try {
     const transporter = nodemailer.createTransport({
@@ -138,7 +168,6 @@ const sendResetPasswordMail = async (name, email, token) => {
       logger: true,
       debug: true,
       //secureConnection: false,
-
       auth: {
         user: "esyntax247@gmail.com",
         pass: "bpnh quaj phwy mtro",
@@ -147,6 +176,9 @@ const sendResetPasswordMail = async (name, email, token) => {
         rejectUnauthorized: true,
       },
     });
+
+
+
 
     const mailOptions = {
       from: config.emailUser,
@@ -172,6 +204,10 @@ const sendResetPasswordMail = async (name, email, token) => {
   }
 };
 
+
+
+
+
 const securePassword = async (password) => {
   try {
     const passwordHash = await bcryptjs.hash(password, 10);
@@ -180,6 +216,10 @@ const securePassword = async (password) => {
     return "";
   }
 };
+
+
+
+
 
 //check db
 app.post("/login", async (req, res) => {
@@ -195,9 +235,6 @@ app.post("/login", async (req, res) => {
       const passwordMatch = await bcryptjs.compare(password, check.password);
       if (passwordMatch) {
         console.log("log");
-        // res.status(201).render("afterlogin", {
-        //   lodu: `${req.body.username}`,
-        // });
         user = username;
         np = numberplate;
         emu = email;
@@ -225,6 +262,11 @@ app.post("/login", async (req, res) => {
     });
   }
 });
+
+
+
+
+
 
 // check db
 app.post("/signup", async (req, res) => {
@@ -270,6 +312,11 @@ app.post("/signup", async (req, res) => {
   }
 });
 
+
+
+
+
+
 app.post("/forget-password", async (req, res) => {
   try {
     const email = req.body.email;
@@ -292,6 +339,11 @@ app.post("/forget-password", async (req, res) => {
   }
 });
 
+
+
+
+
+
 const MongoClient = require("mongodb").MongoClient;
 const url =
   "mongodb+srv://birhadedarshan212:ooad@ooad.tipepbx.mongodb.net/?retryWrites=true&w=majority";
@@ -309,15 +361,13 @@ app.post("/view", async (req, res) => {
 
   const dbName = "test"; // Include dbName directly
   const collectionName = "prebook"; // Include collectionName directly
-
   try {
     await client.connect();
     const db = client.db(dbName);
     const collection = db.collection(collectionName);
-  
-    
+
     const count = await Prebook.countDocuments({
-       
+
       $or: [
         {
           inTimeInSeconds: { $gte: startTimeInSeconds, $lte: endTimeInSeconds }, // Check if inTime is within the range
@@ -330,18 +380,17 @@ app.post("/view", async (req, res) => {
           outTimeInSeconds: { $gte: endTimeInSeconds },
         },
 
-      
-        
       ],
     });
     console.log(`Number of records within the time range: ${count}`);
-   ;
+    ;
     const availableSpaces = 300 - count;
+    gg = availableSpaces;
     res.status(200).json({
       success: true,
       msg: `Available slots: ${availableSpaces}`,
     });
-    console.log("JIJIJI");
+
   } catch (err) {
     console.error("Error: ", err);
     res.status(500).json({ error: "An error occurred during the operation." });
@@ -350,100 +399,112 @@ app.post("/view", async (req, res) => {
   }
 });
 
+
+
+
+
+
 app.post("/createOrder", async (req, res) => {
-  console.log("hi");
-  
-  const { username, email,Date, InTime, OutTime, NumberPlate } = req.body;
-  
-  if (InTime && OutTime && NumberPlate) {
-    try {
-      // Calculate the time difference in seconds
-      // const inTimeInSeconds = new Date(InTime).getTime() / 1000;
-      // const outTimeInSeconds = new Date(OutTime).getTime() / 1000;
-      const inTimeInSeconds = timeStringToSeconds(InTime);
-      const outTimeInSeconds = timeStringToSeconds(OutTime);
-      console.log("InTime:", inTimeInSeconds);
-      console.log("OutTime:", outTimeInSeconds);
 
-      if (!isNaN(inTimeInSeconds) && !isNaN(outTimeInSeconds)) {
-        const durationInSeconds = outTimeInSeconds - inTimeInSeconds;
+  if (gg) {
 
-        // Calculate the payable amount based on the duration (2 Rs per second)
-        var payableAmount = 0;
-          
-   
-            if (durationInSeconds <= 3600) {
+    const { username, email, Date, InTime, OutTime, NumberPlate } = req.body;
+
+    if (InTime && OutTime && NumberPlate) {
+      try {
+        // Calculate the time difference in seconds
+        // const inTimeInSeconds = new Date(InTime).getTime() / 1000;
+        // const outTimeInSeconds = new Date(OutTime).getTime() / 1000;
+        const inTimeInSeconds = timeStringToSeconds(InTime);
+        const outTimeInSeconds = timeStringToSeconds(OutTime);
+        console.log("InTime:", inTimeInSeconds);
+        console.log("OutTime:", outTimeInSeconds);
+
+        if (!isNaN(inTimeInSeconds) && !isNaN(outTimeInSeconds)) {
+          const durationInSeconds = outTimeInSeconds - inTimeInSeconds;
+
+          // Calculate the payable amount based on the duration (2 Rs per second)
+          var payableAmount = 0;
+
+          if (durationInSeconds <= 3600) {
             payableAmount = 3000;
-            } 
-            else if (durationInSeconds >= 54000) {
-              payableAmount = 25000;
-            } 
-            else if (durationInSeconds >= 36000) {
-              payableAmount = 35000;
-            } 
-             else {
-              payableAmount = 30 + ((durationInSeconds - 3600) * 20) / 3600;
-              payableAmount = Math.round(payableAmount) * 100
-            }
-        // Save the data to the MongoDB database including the payable amount
-        const prebookData = new Prebook({
-           username,
-           email,
-           Date,
-          InTime,
-          OutTime,
-          inTimeInSeconds,
-          outTimeInSeconds,
-          NumberPlate,
-          PayableAmount: payableAmount,
-        });
-        console.log(prebookData);
-        await Prebook.insertMany([prebookData]);
-
-        try {
-          
-          const amount = payableAmount ;
-          const options = {
-            amount: amount,
-            currency: "INR",
-            receipt: "razorUser@gmail.com",
-          };
-
-          razorpayInstance.orders.create(options, (err, order) => {
-            
-            if (!err) {
-              res.status(200).send({
-                success: true,
-                msg: "Order Created",
-                order_id: order.id,
-                amount: amount,
-
-                key_id: "rzp_test_a1bgTfOzP7ZaC4",
-                product_name: req.body.name,
-                description: req.body.description,
-                contact: "8567345632",
-                name: "Rubaan Hasan",
-                email: "rubaanhasan123@gmail.com",
-              });
-            } else {
-              res
-                .status(400)
-                .send({ success: false, msg: "Something went wrong!" });
-            }
+          }
+          else if (durationInSeconds >= 54000) {
+            payableAmount = 25000;
+          }
+          else if (durationInSeconds >= 36000) {
+            payableAmount = 35000;
+          }
+          else {
+            payableAmount = 30 + ((durationInSeconds - 3600) * 20) / 3600;
+            payableAmount = Math.round(payableAmount) * 100
+          }
+          // Save the data to the MongoDB database including the payable amount
+          const prebookData = new Prebook({
+            username,
+            email,
+            Date,
+            InTime,
+            OutTime,
+            inTimeInSeconds,
+            outTimeInSeconds,
+            NumberPlate,
+            PayableAmount: payableAmount,
           });
-        } catch (error) {
-          console.log(error.message);
+          console.log(prebookData);
+          await Prebook.insertMany([prebookData]);
+
+          try {
+            const amount = payableAmount;
+            const options = {
+              amount: amount,
+              currency: "INR",
+              receipt: "razorUser@gmail.com",
+            };
+
+            razorpayInstance.orders.create(options, (err, order) => {
+
+              if (!err) {
+                res.status(200).send({
+                  success: true,
+                  msg: "Order Created",
+                  order_id: order.id,
+                  amount: amount,
+
+                  key_id: "rzp_test_a1bgTfOzP7ZaC4",
+                  product_name: req.body.name,
+                  description: req.body.description,
+                  contact: "8567345632",
+                  name: "Rubaan Hasan",
+                  email: "rubaanhasan123@gmail.com",
+                });
+              } else {
+                res
+                  .status(400)
+                  .send({ success: false, msg: "Something went wrong!" });
+              }
+            });
+          } catch (error) {
+            console.log(error.message);
+          }
+          // res.status(201).json({ message: "Data stored successfully" });
+        } else {
+          res.status(400).json({ message: "Invalid data" });
         }
-        // res.status(201).json({ message: "Data stored successfully" });
-      } else {
-        res.status(400).json({ message: "Invalid data" });
+      } catch (error) {
+        console.error("Error :", error);
+        res
+          .status(500)
+          .json({ message: "An error occurred while saving the data" });
       }
-    } catch (error) {
-      console.error("Error :", error);
-      res
-        .status(500)
-        .json({ message: "An error occurred while saving the data" });
     }
+  }
+  else {
+    res.status(200).send({
+      success: false,
+      msg: "cant prebook slots full\ncheck back at some other time",
+
+    });
   }
 });
 

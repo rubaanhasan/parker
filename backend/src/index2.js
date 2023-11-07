@@ -4,6 +4,8 @@ const {
   PreorderNumberplate,
   LocalNumberplate,
   ExitCollection,
+  Prebook,
+  PrebookExited,
 } = require("../models/mongodb");
 const { countRecords } = require("../models/mongo");
 const express = require("express");
@@ -24,7 +26,7 @@ function submitform(){
   document.getElementById("submitButtonexit").click();
 }
 // Global variables
-const PORT = 3000;
+const PORT = 4000;
 let localNumberplatesCount = 0;
 let onlylocalNumberplatesCount = 0; // Declare as a global variable
 const PARKING_CAPACITY = 100;
@@ -99,6 +101,7 @@ async function processFileData(data) {
 
   if (secondLine === "camera1") {
     const numberplate = lines[0].trim();
+    const NumberPlate = lines[0].trim();
     const intimeStr = lines[2].trim();
     const intimeInSeconds = timeStringToSeconds(intimeStr);
     console.log(numberplate);
@@ -108,12 +111,12 @@ async function processFileData(data) {
    
     try {
       // Check if the numberplate exists in the 'preorder_numberplate' collection
-      const preorderResult = await PreorderNumberplate.findOne({
-        numberplate,
+      const preorderResult = await Prebook.findOne({
+        NumberPlate,
       }).exec();
 
       if (preorderResult) {
-        console.log("Gate opens");
+        console.log("Gate opens, prebooked car");
       } else {
         // Check if the numberplate exists in the 'local_numberplate' collection
         const existingLocalPlate = await LocalNumberplate.findOne({
@@ -146,17 +149,35 @@ async function processFileData(data) {
     }
   } else if (secondLine === "camera2") {
     const numberplate = lines[0].trim();
+    const NumberPlate = lines[0].trim();
     const outtimeStr = lines[2].trim();
 
     try {
       // Check if the numberplate exists in the 'preorder_numberplate' collection
-      const preorderResult = await PreorderNumberplate.findOne({
-        numberplate,
+      const preorderResult = await Prebook.findOne({
+        NumberPlate,
       }).exec();
+      
 
       if (preorderResult) {
+        const n_intime=preorderResult.InTime;
+        const n_paid_amt=preorderResult.PayableAmount;
+        const n_username=preorderResult.username;
+        const n_email=preorderResult.email;
+        const n_date=preorderResult.Date;
         // Numberplate found in prebook collection, perform some action
-        console.log("Open Gate.");
+        console.log("Open Gate. coz prebooked car");
+        const exitDataPrebook = new PrebookExited({
+          username:n_username,
+          email:n_email,
+          Date:n_date,
+          NumberPlate:NumberPlate,
+          InTime: n_intime,
+          OutTime: outtimeStr,
+          PayableAmount:n_paid_amt,
+        });
+        await exitDataPrebook.save();
+        await Prebook.deleteOne({ NumberPlate });
       } else {
         // Numberplate not in prebook collection, proceed with exit logic
         const localPlate = await LocalNumberplate.findOne({
@@ -221,7 +242,7 @@ async function processFileData(data) {
 app2.post("/createexitOrder", async (req, res) => {
   console.log(HAHAH);
   try {
-    const amount = HAHAH * 100;
+    const amount = HAHAH ;
     const options = {
       amount: amount,
       currency: "INR",
@@ -253,22 +274,29 @@ app2.post("/createexitOrder", async (req, res) => {
 });
 
 function watchFile() {
-  fs.watch("../ai_files/test.txt", (event, filename) => {
-    if (event === "change" && filename === "test.txt" && !isProcessing) {
-      console.log("File 'test.txt' has changed. Rerunning the code...");
-      // Introduce a delay before reading the file (e.g., 100 milliseconds)
+  let isFileBeingProcessed = false;
+
+  fs.watch("../../anpr/myfile.txt", (event, filename) => {
+    if (event === "change" && filename === "myfile.txt" && !isFileBeingProcessed) {
+      isFileBeingProcessed = true;
+
+      console.log("File 'myfile.txt' has changed. Rerunning the code...");
+
       setTimeout(() => {
-        fs.readFile("../ai_files/test.txt", "utf8", async (err, data) => {
+        fs.readFile("../../anpr/myfile.txt", "utf8", async (err, data) => {
           if (err) {
             console.error("Error reading the file:", err);
-            return;
+          } else {
+            await processFileData(data); // Call the processing function
           }
-          await processFileData(data); // Call the processing function
+
+          isFileBeingProcessed = false; // Reset the flag after processing
         });
-      }, 1000);
+      }, 1000); // Introduce a delay before reading the file
     }
   });
 }
+
 
 // Initial run to start watching the file
 watchFile();

@@ -53,6 +53,37 @@ const exitSchema = new mongoose.Schema({
   },
 });
 
+const prebookSchema2 = new mongoose.Schema({
+  username: {
+    type: String,
+    required: true,
+  },
+  email: {
+    type: String,
+    required: true,
+  },
+  InTime: {
+    type: String,
+    required: true,
+  },
+  OutTime: {
+    type: String,
+    required: true,
+  },
+  Date: {
+    type: String,
+    required: true,
+  },
+  NumberPlate: {
+    type: String,
+    required: true,
+  },
+  PayableAmount: {
+    type: Number, // Assuming it's a numeric field
+    required: true, // You can adjust this as needed
+  },
+});
+
 const prebookSchema = new mongoose.Schema({
 
   username: {
@@ -106,6 +137,7 @@ const localNumberplateSchema = new mongoose.Schema({
 });
 const LogInCollection2 = mongoose.model("LogInCollection2", logInSchema);
 const Prebook = mongoose.model("Prebook", prebookSchema);
+const PrebookExited = mongoose.model("PrebookExited", prebookSchema2);
 const ExitCollection = mongoose.model("ExitCollection", exitSchema);
 const PreorderNumberplate = mongoose.model(
   "PreorderNumberplate",
@@ -117,6 +149,7 @@ const LocalNumberplate = mongoose.model(
 );
 module.exports = {
   Prebook,
+  PrebookExited,
   LogInCollection2,
   ExitCollection,
   PreorderNumberplate,
