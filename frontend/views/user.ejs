@@ -74,7 +74,19 @@
             </tr>
          </thead>
          <tbody id="data-output">
-           <% for( let i=0; i < data.records2.length; i++ ) { %>
+           <% for( let i=data.records.length-1; i >=0; i-- ) { %>
+             <tr>
+               <td><%= (data.username) %></td>
+               <!-- <td><%= (data.email) %></td> -->
+               <td><%= (data.records[i].NumberPlate) %></td>
+               <td><%= (data.records[i].Date) %></td>
+               <td><%= (data.records[i].InTime) %></td>
+               <td><%= (data.records[i].OutTime) %></td>
+               <td><%= (data.records[i].PayableAmount)/100 %></td>
+               <td>Booked</td>
+             </tr>
+             <% } %>
+           <% for( let i=data.records2.length-1; i >=0; i-- ) { %>
             <tr>
               <td><%= (data.username) %></td>
               <!-- <td><%= (data.email) %></td> -->
@@ -83,21 +95,10 @@
               <td><%= (data.records2[i].InTime) %></td>
               <td><%= (data.records2[i].OutTime) %></td>
               <td><%= (data.records2[i].PayableAmount)/100 %></td>
-              <td>Current Booking</td>
+              <td>Past Bookings</td>
+            
             </tr>
             <% } %>
-            <% for( let i=0; i < data.records.length; i++ ) { %>
-              <tr>
-                <td><%= (data.username) %></td>
-                <!-- <td><%= (data.email) %></td> -->
-                <td><%= (data.records[i].NumberPlate) %></td>
-                <td><%= (data.records[i].Date) %></td>
-                <td><%= (data.records[i].InTime) %></td>
-                <td><%= (data.records[i].OutTime) %></td>
-                <td><%= (data.records[i].PayableAmount)/100 %></td>
-                <td>Previously Booked</td>
-              </tr>
-              <% } %>
          </tbody>
         </table>
       </div>
