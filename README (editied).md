@@ -6,7 +6,7 @@ The Parking Payment System is designed to revolutionize the parking experience b
 
 **Client:** Html, Css, Javascript, Bootstrap.
 
-**Server:** Node JS, MongoDB.
+**Server:** NodeJS, Expressjs, MongoDB.
 
 **Machine Learning:** Python and its libraries.
 
